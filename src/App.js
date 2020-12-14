@@ -1,11 +1,10 @@
 import React from 'react';
+import Home from './components/Home';
 
 function App() {
   return (
-    <div className="flex justify-center h-screen">
-      <div className='p-2 self-center'>
-        <h1 className='text-5xl'>ReactJS with Tailwind CSS</h1>
-      </div>
+    <div className='main-wrapper flex flex-wrap min-h-screen bg-gray-900'>
+      <Home />
     </div>
   );
 }

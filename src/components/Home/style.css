@@ -1,0 +1,26 @@
+.box {
+  width: 20px;
+  height: 20px;
+  /* margin: 1px; */
+}
+
+.box-red {
+  background-color: #C01132;
+}
+
+.box-grey {
+  background-color: #737376;
+}
+
+.box-last-row {
+  background: linear-gradient(to top, #9A043C, #A50B3A);
+}
+
+.box-six-row {
+  background: linear-gradient(to top, #A50B3A, #BE1233);
+}
+
+.animated-logo-wrapper {
+  width: 140px;
+  height: 260px;
+}
