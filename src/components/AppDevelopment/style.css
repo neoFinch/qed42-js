@@ -1,0 +1,19 @@
+.app-develop-wrapper {
+  /* overflow-x: hidden; */
+  /* transform: rotate(-90deg) translateY(-700px); */
+  /* transform-origin: right top; */
+}
+
+.app-develop-wrapper > div{
+  /* transform: rotate(90deg); */
+  /* transform-origin: right top; */
+}
+
+/* .panel:first-child {
+  margin-left: 150px;
+} */
+
+.panel {
+  height: 600px;
+  padding: 10px 20px;
+}
