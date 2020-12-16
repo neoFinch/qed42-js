@@ -1,0 +1,59 @@
+a {
+  color: #555;
+  font-weight: 400;
+}
+
+.pSection {
+  position: relative;
+  padding-top: 200px;
+  padding-bottom: 300px;
+}
+
+.container {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1070px;
+  position: relative;
+  z-index: 1;
+}
+
+.pContent {
+  width: 65%;
+  background-color: rgba(78,152,21,0.8);
+  color: white;
+  padding: 40px 60px;
+}
+
+.pImage {
+  width: 70%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-height: 900px;
+}
+
+.header-section{
+  padding: 0 15px;
+    text-align: center;
+    margin: 40vh auto 50vh;
+    max-width: 800px;
+}
+
+
+@media (min-width: 1024px){
+.container {
+    max-width: 1024px;
+}
+}
+
+@media (min-width: 768px){
+.container {
+    max-width: 768px;
+}
+}
+
+@media (min-width: 640px){
+.container {
+    max-width: 640px;
+}
+}

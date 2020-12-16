@@ -3,6 +3,8 @@ import ApplicationDevelopment from './components/AppDevelopment';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import AnimationContext from './contexts/animation-context';
+import Client from './components/Client';
+import Test from './components/Test';
 
 function App() {
 
