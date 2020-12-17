@@ -80,13 +80,13 @@ export default function DeckSwiper() {
     Draggable.create(refArray, {
       type: "x",
       onPress: () => {
-        console.log('slideRef', slideRef)
-        gsap.to(slideRef.current, { rotation: 0, duration: 0.6, scale: 1.2 })
+        // console.log('slideRef', slideRef)
+        gsap.to(cardRef.current.childNodes[cardRef.current.childNodes.length - 1], { rotation: 0, duration: 0.6, scale: 1.2 })
       },
       onRelease: () => {
-        gsap.to(slideRef.current, { rotation: 5, duration: 0.6, scale: 1 })
+        gsap.to(cardRef.current.childNodes[cardRef.current.childNodes.length - 1], { rotation: 5, duration: 0.6, scale: 1 })
       },
-      onDrag: () => { mouseMoveAction(id) },
+      // onDrag: () => { mouseMoveAction(id) },
       onDragEnd: () => { removeCard(id) }
     })
   }
