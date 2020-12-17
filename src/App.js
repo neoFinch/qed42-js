@@ -15,7 +15,7 @@ function App() {
   // useEffect(() => {
   //   setCurrentBg
   // }, [currentBg]);
-  
+
   return (
     <AnimationContext.Provider
       value={{
@@ -24,7 +24,7 @@ function App() {
         currentBg
       }}>
       <div className='main-wrapper flex flex-wrap min-h-screen'>
-        {splashScreenActive ? 
+        {splashScreenActive ?
           <SplashScreen /> :
           <>
             <Navbar />
