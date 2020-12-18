@@ -14,26 +14,6 @@ html {
   right: 0;
 }
 
-
-.element-small {
-  height: 100px;
-  object-fit: contain;
-  width: 220px;
-  margin: 20px 20px;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  top: 0;
-  right: 0;
-}
-@keyframes stretch {
-  0% {
-    transform: scale(.3);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .content{
   height:100%;
   width:100%;
@@ -67,13 +47,5 @@ html {
   width:220px;
   object-fit: contain;
   margin: 20px 50px;
-  position: relative;
-}
-
-.content-image-wrapper-small{
-  height: 100px;
-  width: 150px;
-  object-fit: contain;
-  margin: 20px 0px;
   position: relative;
 }

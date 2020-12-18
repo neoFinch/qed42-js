@@ -17,7 +17,7 @@ export default function Navbar() {
   }, [])
   
   return (
-    <div ref={navbarRef} className='flex p-2 w-full fixed top-0 left-0' style={{maxHeight: '70px'}}>
+    <div ref={navbarRef} className='flex p-2 w-full fixed top-0 left-0 z-10' style={{maxHeight: '70px'}}>
       <div className='logo-wrapper' style={{width: '50px'}}>
         <img src={logo} className='w-full'/>
       </div>

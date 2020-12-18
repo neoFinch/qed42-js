@@ -41,8 +41,9 @@ export default function ApplicationDevelopment() {
         start: "top 70px",
         pin: true,
         scrub: 1,
-        snap: 1/(sections.length - 1),
-        end: () => "+=" + document.getElementById('scroller').offsetWidth
+        snap: 2/(sections.length - 1),
+        pinSpacing: false,
+        // end: () => "+=" + 700
       }
     });
   }, []);
@@ -61,37 +62,37 @@ export default function ApplicationDevelopment() {
             ref={circleWrapperRef}
             className='circle-wrapper w-full flex' 
             style={{height: `400px`, width: `${window.innerWidth - 42}px`}}>
-              <div className='circle w-56 rounded-full bg-gray-800 h-56 self-center'></div>
-              <div className='circle w-56 rounded-full bg-gray-700 h-56 self-center'></div>
-              <div className='circle w-56 rounded-full bg-gray-600 h-56 self-center'></div>
+              <div className='circle w-56 rounded-full h-56 self-center opacity-75' style={{background: '#777'}}></div>
+              <div className='circle w-56 rounded-full h-56 self-center opacity-50' style={{background: '#666'}}></div>
+              <div className='circle w-56 rounded-full h-56 self-center ' style={{background: '#555'}}></div>
           </div>
           <div>
             <h1 
               className='text-gray-700 text-6xl font-bold w-full' 
-              style={{height: '100px', fontFamily: 'Montserrat'}}>
+              style={{height: '100px', fontFamily: 'Montserrat', color: '#555'}}>
               PRODUCT ENGINEERING
             </h1>
             <h2 
-              className='text-gray-70 text-5xl opacity-50' style={{fontFamily: 'Sacramento', color: '#DD0031'}}>
+              className='text-gray-70 text-5xl' style={{fontFamily: 'Sacramento', color: '#DD0031'}}>
               Javascript Application Development
             </h2>
           </div>  
         </div>
 
-        <div className='panel'>
+        <div className='panel pt-20'>
           <div className='w-full flex items-stretch self-center' style={{width: `${window.innerWidth - 42}px`}}>
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}}>
                 Scale your <br/>business with robust, <br/>and high-performing applications.
               </h1>
             </div>
-            <div className='w-full h-full self-stretch'>
-              <img src={scaleImg} />
+            <div className='w-full h-full self-stretch flex justify-center'>
+              <img src='https://lh3.googleusercontent.com/proxy/8gkKLYl1TWX6Xj0v57NZL-ntiJy1eS0WSE_2p1Y62eD76KMwZLgDXC2hQW2BheguuuZBMVFZGLK5igkGIxxuYnNYgo5_4QJXrZog_Pwqqa9YsLsuZnMP3s8MuXj3nyb6JWudYkkQFmE' />
             </div>
           </div>  
         </div>
 
-        <div className='panel'>
+        <div className='panel pt-20'>
           <div className='w-full flex items-stretch self-center' style={{width: `${window.innerWidth - 42}px`}}>
             <div className='w-full self-center'>
               <h1 className='text-6xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}}>
@@ -101,8 +102,8 @@ export default function ApplicationDevelopment() {
               QED42 possesses extensive experience and skill set in delivering tailor-made applications that evolve with your business. We have over 10 years of experience offering a wide range of mobile app & website development services.  Looking to enhance an existing app, build a new one, or test your idea with an MVP? We’ve got you covered at each stage of the development life cycle.
               </h3>
             </div>
-            <div className='w-full h-full self-stretch rounded overflow-hidden shadow-2xl'>
-              <img width='100%' src='https://www.qed42.com/sites/default/files/styles/800x600/public/2019-11/3.png?itok=ozHkm7l7' />
+            <div className='w-full h-full self-stretch rounded overflow-hidden'>
+              <img width='100%' src='https://codedote.com/img/bg-img/stat.gif' />
             </div>
           </div>  
         </div>
@@ -111,7 +112,7 @@ export default function ApplicationDevelopment() {
           <div className='w-full flex items-stretch self-center' style={{width: `${window.innerWidth - 42}px`}}>
             <div className='w-1/3 h-full self-stretch'>
               <img 
-                src='https://www.qed42.com/sites/default/files/styles/600x800/public/2019-11/JS%2BReact.png?itok=_vbUYdTF'/>
+                src='https://onepatch.com/wp-content/uploads/2020/03/JAVASCRIPT_CIRCLE_NEW.gif'/>
             </div>
             <div className='w-2/3 self-center pl-12'>
               <h1 className='text-6xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}}>
@@ -124,20 +125,12 @@ export default function ApplicationDevelopment() {
           </div>  
         </div>
 
-        {/* <div className='panel'>
+        <div className='panel min-h-screen'>
           <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
-            <h1 
-              className='text-gray-700 text-6xl font-bold w-full opacity-75' 
-              style={{height: '100px'}}>
-              PRODUCT ENGINEERING
-            </h1>
-            <h2 
-              className='text-gray-800 text-4xl lowercase opacity-1'>
-              JAVASCRIPT APPLICATION DEVELOPMENT
-            </h2>
+            
           </div>  
         </div>
-
+      {/*
         <div className='panel'>
           <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
             <h1 

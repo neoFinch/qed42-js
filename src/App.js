@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ApplicationDevelopment from './components/AppDevelopment';
-import Home from './components/Home';
+import SplashScreen from './components/Home';
 import Navbar from './components/Navbar';
+import OurServices from './components/OurServices';
 import AnimationContext from './contexts/animation-context';
 import Client from './components/Client';
+import Banner from './components/Banner';
 
 function App() {
 
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [splashScreenActive, setSplashScreenActive] = useState(true);
-
+  const [splashScreenActive, setSplashScreenActive] = useState(false);
+  
   return (
     <AnimationContext.Provider
-    value={{setSplashScreenActive}}
-    >
-      <div className='main-wrapper flex flex-wrap min-h-screen bg-gray-900'>
+      value={{
+        setSplashScreenActive
+      }}>
+      <div className='main-wrapper flex flex-wrap min-h-screen' style={{background: '#fff'}}>
         {splashScreenActive ? 
-          <Home /> :
+          <SplashScreen /> :
           <>
             <Navbar />
+            <Banner />
             <ApplicationDevelopment />
+            <OurServices />
             <Client />
           </>
         }
