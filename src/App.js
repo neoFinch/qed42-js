@@ -8,14 +8,21 @@ import Banner from './components/Banner';
 
 function App() {
 
-  const [splashScreenActive, setSplashScreenActive] = useState(false);
+  const [splashScreenActive, setSplashScreenActive] = useState(true);
+  const [currentBg, setCurrentBg] = useState('#161618');
+
+  // useEffect(() => {
+  //   setCurrentBg
+  // }, [currentBg]);
   
   return (
     <AnimationContext.Provider
       value={{
-        setSplashScreenActive
+        setSplashScreenActive,
+        setCurrentBg,
+        currentBg
       }}>
-      <div className='main-wrapper flex flex-wrap min-h-screen' style={{background: '#fff'}}>
+      <div className='main-wrapper flex flex-wrap min-h-screen'>
         {splashScreenActive ? 
           <SplashScreen /> :
           <>
