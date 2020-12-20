@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './style.css';
 import { ScrollTrigger } from 'gsap/all';
 import scaleImg from '../../assets/images/scale.png';
+import AppDevelopOne from '../../assets/images/app-develop-1.gif';
+import AnimationContext from '../../contexts/animation-context';
 
 export default function ApplicationDevelopment() {
 
   let circleWrapperRef = useRef(null);
   let containerRef = useRef(null);
+  let firstPanelRef = useRef(null);
   let height = window.innerHeight;
+  let animationContext = useContext(AnimationContext);
   
   useEffect(() => {
     // 
@@ -41,23 +45,45 @@ export default function ApplicationDevelopment() {
         start: "top 70px",
         pin: true,
         scrub: 1,
-        snap: 2/(sections.length - 1),
+        snap: {
+          snapTo: 1/(sections.length - 1),
+          duration: 0.3
+        },
         pinSpacing: false,
-        // end: () => "+=" + 700
       }
     });
+
+    gsap.to(containerRef.current, {
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "+=133 80%",
+        end: "+=200 60%",
+        pin: true,
+        scrub: 1,
+        pinSpacing: false,
+        markers: true,
+        onEnter: () => {
+          animationContext.setCurrentBg('#fff');
+        },
+        onLeaveBack: () => {
+          console.log('Leave BACK');
+          animationContext.setCurrentBg('#161618');
+        },
+      }
+    });
+
   }, []);
 
 
   return (
-    <div className='pt-20'>
+    <div className='pt-20' style={{background: animationContext.currentBg}}>
       <div
         id='scroller'
         ref={containerRef}
         className='app-develop-wrapper flex overflow-x-hidden overflow-y-hidden' 
         style={{height: `${height * 5}px`, width: `${window.innerWidth}px`}}
         >
-        <div className='panel'>
+        <div className='panel' ref={firstPanelRef}>
           <div
             ref={circleWrapperRef}
             className='circle-wrapper w-full flex' 
@@ -87,7 +113,7 @@ export default function ApplicationDevelopment() {
               </h1>
             </div>
             <div className='w-full h-full self-stretch flex justify-center'>
-              <img src='https://lh3.googleusercontent.com/proxy/8gkKLYl1TWX6Xj0v57NZL-ntiJy1eS0WSE_2p1Y62eD76KMwZLgDXC2hQW2BheguuuZBMVFZGLK5igkGIxxuYnNYgo5_4QJXrZog_Pwqqa9YsLsuZnMP3s8MuXj3nyb6JWudYkkQFmE' />
+              <img src={AppDevelopOne} />
             </div>
           </div>  
         </div>

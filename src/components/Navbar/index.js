@@ -21,7 +21,9 @@ export default function Navbar() {
       <div className='logo-wrapper' style={{width: '50px'}}>
         <img src={logo} className='w-full'/>
       </div>
-      {console.log('NAVBAR CALLED')}
+      <div className='place-self-end border border-red-300 w'>
+
+      </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import './style.css';
 export default function Home() {
 
   const logoRef = useRef(null);
+  const splashWrapperRef = useRef(null)
   const animationContext = useContext(AnimationContext);
   
   let redBox = [3, 11, 17, 18, 23, 24, 25, 29, 30, 31, 33, 35, 36, 37, 39, 40, 41];
@@ -24,7 +25,6 @@ export default function Home() {
         }
       }
     );
-    console.log({filteredArr});
     gsap.fromTo(filteredArr, {
       y: 30,
       opacity: 0,
@@ -37,12 +37,21 @@ export default function Home() {
       stagger: 0.05
     }).then( x => {
       console.log('x : ', x);
+      gsap.to(splashWrapperRef.current, {
+        background: '#171718',
+        duration: 0.5
+      })
       gsap.to(filteredArr, {
         z: 5,
-        scale: 0,
+        scale: 10,
         // stagger: 0.03,
         opacity: 0,
-        onComplete: () => {animationContext.setSplashScreenActive(false)}
+        onComplete: () => {
+          setTimeout(() => {
+            animationContext.setSplashScreenActive(false);
+            animationContext.setCurrentBg('#171718');
+          }, 400)
+        }
       })
     });
   }, [])
@@ -73,7 +82,7 @@ export default function Home() {
 
   return (
     <>
-      <div className='splash-screen-wrapper flex justify-center align-middle w-full'>
+      <div ref={splashWrapperRef} className='splash-screen-wrapper flex justify-center align-middle w-full bg-white'>
         <div 
           ref={logoRef} 
           className='animated-logo-wrapper flex flex-wrap self-center'>
