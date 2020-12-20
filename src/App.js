@@ -4,6 +4,7 @@ import SplashScreen from './components/Home';
 import Navbar from './components/Navbar';
 import OurServices from './components/OurServices';
 import AnimationContext from './contexts/animation-context';
+import Client from './components/Client';
 import Banner from './components/Banner';
 
 function App() {
@@ -30,9 +31,10 @@ function App() {
             <Banner />
             <ApplicationDevelopment />
             <OurServices />
+            <Client />
           </>
         }
-        
+
       </div>
     </AnimationContext.Provider>
   );
