@@ -6,6 +6,7 @@ import OurServices from './components/OurServices';
 import AnimationContext from './contexts/animation-context';
 import Client from './components/Client';
 import Banner from './components/Banner';
+import ProjectHighlights from './components/ProjectHighlights';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <>
             <Navbar />
             <Banner />
+            <ProjectHighlights />
             <ApplicationDevelopment />
             <OurServices />
             <Client />

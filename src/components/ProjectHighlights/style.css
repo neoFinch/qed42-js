@@ -1,0 +1,8 @@
+#controller:hover{
+  transform: scale(1.8);
+}
+#controller{ transition: all .4s ease-in-out; }
+
+.heading-wrapper{
+  will-change: opacity;
+}
