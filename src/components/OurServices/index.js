@@ -21,10 +21,10 @@ export default function OurServices() {
   useEffect(() => {
     let i = 0;
 
-    const action = setInterval(() => {
+    const action = setTimeout(() => {
       dencrypt(service1[i]);
       i = i === service1.length - 1 ? 0 : i + 1;
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(action);
   }, []);
@@ -82,6 +82,8 @@ export default function OurServices() {
     trail: 25
   })
 
+  console.log("transitions before",transitions);
+
   return (
     <div
       ref={ourServicesRef}
@@ -106,6 +108,9 @@ export default function OurServices() {
           <Service2 />
         </div>
       </div>
+      {
+          console.log("transitions after",transitions)
+      }
     </div>
   )
 }

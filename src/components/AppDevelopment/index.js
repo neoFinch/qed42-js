@@ -2,11 +2,21 @@ import React, { useContext, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './style.css';
 import { ScrollTrigger } from 'gsap/all';
-import scaleImg from '../../assets/images/scale.png';
 import AppDevelopOne from '../../assets/images/app-develop-1.gif';
 import AnimationContext from '../../contexts/animation-context';
+import Stack from "../Stack";
+import AWS from '../../assets/images/amazon-web-services.png'
+import GATSBY from '../../assets/images/gatsby-logo.png';
+import GRAPHQL from '../../assets/images/graphql-ar21JS_F_L.svg'
+import PWA from '../../assets/images/pwa-logo.png';
+import REACT from '../../assets/images/reactjs-ar21JS_F_L.svg';
+import REACT_NATIVE from '../../assets/images/react nativeJS_F_L.svg';
+import NODE from '../../assets/images/nodejs-logo.png';
+import MONGODB from '../../assets/images/mongodb-LOGO.png';
+import NEXT from '../../assets/images/next-js-logo.png';
 
-export default function ApplicationDevelopment() {
+
+export default function ApplicationDevelopment() {  
 
   let circleWrapperRef = useRef(null);
   let containerRef = useRef(null);
@@ -87,7 +97,8 @@ export default function ApplicationDevelopment() {
           <div
             ref={circleWrapperRef}
             className='circle-wrapper w-full flex'
-            style={{ height: `400px`, width: `${window.innerWidth - 42}px` }}>
+            style={{ height: `400px`, width: `${window.innerWidth - 42}px` }}
+          >
             <div className='circle w-56 rounded-full h-56 self-center opacity-75' style={{ background: '#777' }}></div>
             <div className='circle w-56 rounded-full h-56 self-center opacity-50' style={{ background: '#666' }}></div>
             <div className='circle w-56 rounded-full h-56 self-center ' style={{ background: '#555' }}></div>
@@ -151,26 +162,33 @@ export default function ApplicationDevelopment() {
           </div>
         </div>
 
-        <div className='panel min-h-screen'>
-          <div className='w-full' style={{ width: `${window.innerWidth - 42}px` }}>
-
+        <div className='panel'>
+          <div className="w-full flex items-stretch self-center"  style={{width: `${window.innerWidth - 42}px`}} >
+            <div className='w-full pt-12'>
+              <h1 className='text-6xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}} >
+                Frameworks and Libraries
+              </h1>
+            </div>  
+            <div className="main-stack-wrapper">
+              <div className="main w-full h-full p-12">
+                <Stack image={NODE} background="#333333"  />
+                <Stack image={MONGODB} background='#B7E6CB'  />
+                <Stack image={GRAPHQL} background="#A9A9A9" width="100%" />
+                <Stack image={GATSBY}  background='#FF961E' />
+                <Stack image={REACT}  background='#ddd' width="100%" />
+                <Stack image={REACT_NATIVE} background='#262C31' width="100%" />
+                <Stack image={AWS}  background='#FFB42C' />
+                <Stack image={NEXT}  filter='invert(1)'  background="#000000" />
+                <Stack image={PWA} background='#E16038' />
+              </div>
+            </div>
           </div>
         </div>
-        {/*
-        <div className='panel'>
-          <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
-            <h1 
-              className='text-gray-700 text-6xl font-bold w-full opacity-75' 
-              style={{height: '100px'}}>
-              PRODUCT ENGINEERING
-            </h1>
-            <h2 
-              className='text-gray-800 text-4xl lowercase opacity-1'>
-              JAVASCRIPT APPLICATION DEVELOPMENT
-            </h2>
-          </div>  
-        </div> */}
 
+        <div className='panel min-h-screen'>
+          <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
+          </div>  
+        </div>
       </div>
     </div>
   )
