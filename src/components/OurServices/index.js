@@ -1,9 +1,34 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import './style.css'
 
+import { useTransition, a } from 'react-spring'
+import shuffle from 'lodash/shuffle'
+import useMeasure from './useMeasure'
+import useMedia from './useMedia'
+import data from '../../data'
+import Service1 from './service1';
+import Service2 from './service2'
+import { useDencrypt } from "use-dencrypt-effect";
+
+
 export default function OurServices() {
+
+  const service1 = ["/", ".", "-", "^", "*","REST API Solutions"];
+
+  const { result, dencrypt } = useDencrypt();
+  useEffect(() => {
+    let i = 0;
+
+    const action = setInterval(() => {
+      dencrypt(service1[i]);
+      i = i === service1.length - 1 ? 0 : i + 1;
+    }, 2000);
+
+    return () => clearInterval(action);
+  }, []);
+
 
   const ourServicesRef = useRef(null);
   useEffect(() => {
@@ -28,6 +53,34 @@ export default function OurServices() {
       // background: ''
     })
   }, []);
+  
+  // Hook1: Tie media queries to the number of columns
+  const columns = useMedia(['(min-width: 1500px)', '(min-width: 1000px)', '(min-width: 600px)'], [5, 4, 3], 2)
+  // Hook2: Measure the width of the container element
+  const [bind, { width }] = useMeasure()
+  // Hook3: Hold items
+  const [items, set] = useState(data)
+  // Hook4: shuffle data every 2 seconds
+  useEffect(() => void setInterval(() => set(shuffle), 2000), [])
+  // Hook5: Form a grid of stacked items using width & columns we got from hooks 1 & 2
+  const [heights, gridItems] = useMemo(() => {
+    let heights = new Array(columns).fill(0) // Each column gets a height starting with zero
+    let gridItems = items.map((child, i) => {
+      const column = heights.indexOf(Math.min(...heights)) // Basic masonry-grid placing, puts tile into the smallest column using Math.min
+      const xy = [(width / columns) * column, (heights[column] += child.height / 2) - child.height / 2] // X = container width / number of columns * column index, Y = it's just the height of the current column
+      return { ...child, xy, width: width / columns, height: child.height / 2 }
+    })
+    return [heights, gridItems]
+  }, [columns, items, width])
+  // Hook6: Turn the static grid values into animated transitions, any addition, removal or change will be animated
+  const transitions = useTransition(gridItems, (item) => item.css, {
+    from: ({ xy, width, height }) => ({ xy, width, height, opacity: 0 }),
+    enter: ({ xy, width, height }) => ({ xy, width, height, opacity: 1 }),
+    update: ({ xy, width, height }) => ({ xy, width, height }),
+    leave: { height: 0, opacity: 0 },
+    config: { mass: 5, tension: 500, friction: 100 },
+    trail: 25
+  })
 
   return (
     <div
@@ -35,23 +88,23 @@ export default function OurServices() {
       className='our-services-wrapper flex flex-wrap min-h-screen w-full px-10 py-16 bg-white' 
       style={{zIndex: '1', fontFamily: 'Montserrat'}}>
       <h1 className='text-6xl font-semibold text-gray-500 w-full' style={{fontFamily: 'Montserrat'}}>Our Services</h1>
-      <div className='w-1/3 p-5'>
-        <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>REST API Solutions</h3>
-        <p className='text-xl text-justify text-gray-700 pt-4'>
-          REST APIs provide a great deal of flexibility. Data is not tied to resources or methods, so REST can handle multiple types of calls, return different data formats and even change structurally with the correct implementation of hypermedia. This flexibility allows developers to build an API that meets your needs while also meeting the needs of very diverse customers. We understand and follow all the updated and stable REST API’s in the market.
-        </p>
-      </div>
-      <div className='w-1/3 p-5'>
-        <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>Progressive web application</h3>
-        <p className='text-xl text-justify text-gray-700 pt-4'>
-          We ensure that your web apps are flexible for multiple devices delivering a flawless native app alike performance. PWA’s are highly reliable, fast, engaging, and deliver an amazing experience to the users. Create PWA’s that experience maximum user engagement and increased conversions with us.
-        </p>
-      </div>
-      <div className='w-1/3 p-5'>
-        <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>Front end performance optimization</h3>
-        <p className='text-xl text-justify text-gray-700 pt-4'>
-          Improving website performance where it matters the most. FEO increases your revenue opportunities, encourages agility, and helps you scale - on any device, at any time. Fast loading web pages improve user experience, retain users, and ensure they return. QED42 helps you accelerate your web performance with performance audit, providing insights, and develop an optimal solution.
-        </p>
+      <div className='w-full flex justify-around'>
+        <div className='list-wrapper'>
+          <div {...bind} className="list w-screen " style={{ height: Math.max(...heights)}}>
+            {transitions.map(({ item, props: { xy, ...rest }, key }) => (
+              <a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
+                <div style={{ backgroundImage: item.css }} />
+              </a.div>
+            ))}
+          </div>
+        </div>
+        <div className='w-4/12 flex flex-col h-full relative'>
+          <div className='w-screen mt-4 absolute'>
+            <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>{result}</h3>
+          </div>
+          <Service1 />
+          <Service2 />
+        </div>
       </div>
     </div>
   )
