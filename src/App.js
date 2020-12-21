@@ -10,7 +10,7 @@ import ProjectHighlights from './components/ProjectHighlights';
 
 function App() {
 
-  const [splashScreenActive, setSplashScreenActive] = useState(true);
+  const [splashScreenActive, setSplashScreenActive] = useState(false);
   const [currentBg, setCurrentBg] = useState('#161618');
 
   // useEffect(() => {

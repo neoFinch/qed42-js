@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useTransition, animated, config } from 'react-spring'
 
 import './style.css'
@@ -13,7 +13,7 @@ export default function ProjectHighlights() {
   const [isControllerPressed, setIsControllerPressed] = useState(false)
   const [index, setIndex] = useState(0)
 
-  const tempCards = [
+  const cards = [
     {
       text: 'Making Legal Language Digitally Accessible - ILAO',
       id: 0
@@ -48,7 +48,7 @@ export default function ProjectHighlights() {
     }
   ]
 
-  const transitions = useTransition(tempCards[index], item => item.id, {
+  const transitions = useTransition(cards[index], item => item.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -71,7 +71,7 @@ export default function ProjectHighlights() {
   const resetControllerPress = () => {
     setIsControllerPressed(false)
   }
-
+  console.log('transitions', transitions)
   return (
     <div
       className="overflow-x-hidden flex w-full justify-around"
@@ -107,6 +107,7 @@ export default function ProjectHighlights() {
               </animated.div>
             ))
           }
+          {console.log("transitions: ", transitions)}
         </div>
         <div className=" relative w-1/2 flex items-center justify-center">
           <Deck
