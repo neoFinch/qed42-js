@@ -12,7 +12,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
     "react-scroll-parallax": "^2.3.5",
-    "rellax": "^1.12.1"
+    "rellax": "^1.12.1",
     "react-vfx": "^0.4.1",
     "three": "^0.123.0",
     "vanta": "^0.5.21"

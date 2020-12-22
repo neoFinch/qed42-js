@@ -1,0 +1,14 @@
+.menu-wrapper ul{
+  list-style: none;
+  display: flex;
+}
+
+.menu-wrapper ul li{
+  color: #fff;
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.invert-colors {
+  filter: invert(1);
+}

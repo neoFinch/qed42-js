@@ -51,7 +51,7 @@ export default function Banner() {
   }, [vantaEffect, animationContext.currentBg])
   
   return (
-    <div ref={bannerRef} className='banner-wrapper min-h-screen flex p-10 pb-24 w-full pt-40'>
+    <div ref={bannerRef} className='banner-wrapper min-h-screen flex p-10 w-full pt-40'>
       <div className='flex w-full flex-wrap justify-center text-center font-bold' style={{fontFamily: 'Roboto, sans-serif'}}>
         <div className='flex flex-wrap self-center justify-center'>
           <img className='w-2/3 pb-20' style={{filter: 'invert(1)'}} src={takingDigitalSvg} />

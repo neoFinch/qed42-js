@@ -15,26 +15,26 @@ export default function ApplicationDevelopment() {
   let animationContext = useContext(AnimationContext);
   
   useEffect(() => {
-    // 
-    // CIRCLE ANIMATION
-    // 
+    
+    /**
+     * CIRCLE ANIMATION
+     */
     gsap.registerPlugin(ScrollTrigger);
     let childNodes = circleWrapperRef.current.childNodes;
     gsap.fromTo(childNodes, {
       opacity: 0,
-      x: 700,
+      x: 900,
     },
     {
-      opacity: 1,
+      opacity: 0.6,
       x: -750,
       duration: 2.2,
       stagger: 0.2,
     }).repeat(-1).yoyo();
     
-    // /**
-    //  * PANELS ANIMATION
-    //  */
-
+    /**
+     * PANELS ANIMATION
+     */
     let sections = gsap.utils.toArray('.panel');
     console.log({sections});
     gsap.to(containerRef.current.childNodes, {
@@ -42,14 +42,18 @@ export default function ApplicationDevelopment() {
       ease: 'none',
       scrollTrigger: {
         trigger: containerRef.current,
-        start: "top 70px",
+        start: "top 0px",
         pin: true,
         scrub: 1,
+        // markers: true,
         snap: {
           snapTo: 1/(sections.length - 1),
-          duration: 0.3
+          duration: 0.8
         },
         pinSpacing: false,
+        onEnter: (e) => {
+          console.log('on panel enter : ', e);
+        }
       }
     });
 
@@ -61,7 +65,7 @@ export default function ApplicationDevelopment() {
         pin: true,
         scrub: 1,
         pinSpacing: false,
-        markers: true,
+        // markers: true,
         onEnter: () => {
           animationContext.setCurrentBg('#fff');
         },
@@ -76,11 +80,11 @@ export default function ApplicationDevelopment() {
 
 
   return (
-    <div className='pt-20' style={{background: animationContext.currentBg}}>
+    <div className='pt-20 relative' style={{background: animationContext.currentBg}}>
       <div
         id='scroller'
         ref={containerRef}
-        className='app-develop-wrapper flex overflow-x-hidden overflow-y-hidden' 
+        className='relative app-develop-wrapper flex overflow-x-hidden overflow-y-hidden' 
         style={{height: `${height * 5}px`, width: `${window.innerWidth}px`}}
         >
         <div className='panel' ref={firstPanelRef}>
@@ -88,9 +92,15 @@ export default function ApplicationDevelopment() {
             ref={circleWrapperRef}
             className='circle-wrapper w-full flex' 
             style={{height: `400px`, width: `${window.innerWidth - 42}px`}}>
-              <div className='circle w-56 rounded-full h-56 self-center opacity-75' style={{background: '#777'}}></div>
-              <div className='circle w-56 rounded-full h-56 self-center opacity-50' style={{background: '#666'}}></div>
-              <div className='circle w-56 rounded-full h-56 self-center ' style={{background: '#555'}}></div>
+              <div 
+                className='circle w-56 rounded-full h-56 self-center opacity-75' 
+                style={{background: ' red'}}></div>
+              <div 
+                className='circle w-56 rounded-full h-56 self-center opacity-50' 
+                style={{background: ' blue'}}></div>
+              <div 
+                className='circle w-56 rounded-full h-56 self-center' 
+                style={{background: ' teal'}}></div>
           </div>
           <div>
             <h1 
@@ -99,7 +109,7 @@ export default function ApplicationDevelopment() {
               PRODUCT ENGINEERING
             </h1>
             <h2 
-              className='text-gray-70 text-5xl' style={{fontFamily: 'Sacramento', color: '#DD0031'}}>
+              className='text-gray-70 text-5xl' style={{fontFamily: 'Sacramento', color: '#666'}}>
               Javascript Application Development
             </h2>
           </div>  
@@ -156,21 +166,6 @@ export default function ApplicationDevelopment() {
             
           </div>  
         </div>
-      {/*
-        <div className='panel'>
-          <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
-            <h1 
-              className='text-gray-700 text-6xl font-bold w-full opacity-75' 
-              style={{height: '100px'}}>
-              PRODUCT ENGINEERING
-            </h1>
-            <h2 
-              className='text-gray-800 text-4xl lowercase opacity-1'>
-              JAVASCRIPT APPLICATION DEVELOPMENT
-            </h2>
-          </div>  
-        </div> */}
-
       </div>
     </div>
   )

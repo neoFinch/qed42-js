@@ -44,11 +44,11 @@ export default function Client() {
 
 
     gsap.fromTo("#one",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#one",
@@ -59,11 +59,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#two",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
         duration: 0.7,
-        autoAlpha: 1,
-        yPercent: -50,
+        opacity: 1,
+        yPercent: 0,
         ease: 'none',
         scrollTrigger :{
           trigger: "#two",
@@ -74,11 +74,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#three",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#three",
@@ -89,11 +89,11 @@ export default function Client() {
     })
  
     gsap.fromTo("#four",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#four",
@@ -104,11 +104,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#five",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#five",
@@ -119,11 +119,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#six",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#six",
@@ -134,11 +134,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#seven",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
         duration: 0.7,
-        autoAlpha: 1,
-        yPercent: -50,
+        opacity: 1,
+        yPercent: 0,
         ease: 'none',
         scrollTrigger :{
           trigger: "#seven",
@@ -149,11 +149,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#eight",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#eight",
@@ -164,11 +164,11 @@ export default function Client() {
   })
 
     gsap.fromTo("#nine",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
         duration: 0.7,
-        autoAlpha: 1,
-        yPercent: -50,
+        opacity: 1,
+        yPercent: 0,
         ease: 'none',
         scrollTrigger :{
           trigger: "#nine",
@@ -180,11 +180,11 @@ export default function Client() {
 
 
     gsap.fromTo("#ten",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#ten",
@@ -196,11 +196,11 @@ export default function Client() {
 
 
     gsap.fromTo("#eleven",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#eleven",
@@ -212,11 +212,11 @@ export default function Client() {
 
 
     gsap.fromTo("#twelve",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#twelve",
@@ -227,11 +227,11 @@ export default function Client() {
     })
 
     gsap.fromTo("#thirteen",
-      {autoAlpha: 0},
+      {opacity: 0},
       {
       duration: 0.7,
-      autoAlpha: 1,
-      yPercent: -50,
+      opacity: 1,
+      yPercent: 0,
       ease: 'none',
       scrollTrigger :{
         trigger: "#thirteen",

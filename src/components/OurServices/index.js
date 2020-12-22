@@ -15,16 +15,15 @@ export default function OurServices() {
         end: "+=200 60%",
         scrub: true,
         // markers: true,
-        toggleActions: "play reverse play reverse",
+        // toggleActions: "play reverse play reverse",
       }
     });
 
     tl.fromTo(ourServicesRef.current, {
-      // opacity: 0.5,
-      duration: 0.5,
+      opacity: 0,
     }, {
-      // opacity: 1,
-      duration: 0.5,
+      opacity: 1,
+      duration: 1,
       // background: ''
     })
   }, []);
