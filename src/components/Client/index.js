@@ -1,27 +1,18 @@
 import React, {useEffect, useRef}  from 'react';
+import gsap from 'gsap';
+
 import NOVARTIS from '../../images/novartis-client-logo (1).png'
 import MGM from '../../images/mgm-client-logo.png'
 import ACQUIA from  '../../images/acquia-client-logo.png';
 import NESTLE from '../../images/nestle-client-logo.png';
 import STANFORD_UNIVERSITY from '../../images/stanford-client-logo.png';
 import AAMAADMI from '../../images/aamc-client-logo.png';
-import ARIA from '../../images/aria-client-logo.png';
 import ASHOKA from '../../images/ashoka-logo.png';
 import FILA from '../../images/fila-client-logo.png';
-import HP from '../../images/hp-client-logo.png';
 import ILAO from '../../images/ilao-client-logo.png';
 import INTEL from '../../images/intel-client-logo.png';
-import NRDC from '../../images/nrdc-client-logo.png';
-import NYC from '../../images/nyc-client-logo.png';
-import PWC from '../../images/pwc-client-logo.png';
-import SAB_MILLAR from '../../images/sabmiller-client-logo.png';
-import SONY from '../../images/sony-client-logo.png';
-import TISS from '../../images/tiss-client-logo.png';
-import UBM from '../../images/ubm-client-logo.png';
 import UNITARIAN from '../../images/unitarian-client-logo.png';
 import WARNER from '../../images/warner-client-logo.png';
-import IITB from '../../images/iitb-logo.png';
-import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './style.css';
 
@@ -327,12 +318,6 @@ export default function Client() {
             src={INTEL} 
           />
         </div>
-       {/* <div className='content-image-wrapper' id="eleven">
-          <img 
-            src={SAB_MILLAR} className="element"  
-            // style={{ animation:'stretch 3s ease-out 220s 2 alternate'}}
-          />
-        </div> */}
         <div className='content-image-wrapper' id="twelve">
           <img 
             className="element" 

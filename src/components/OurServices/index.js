@@ -27,7 +27,12 @@ export default function OurServices() {
     //   i = i === service1.length - 1 ? 0 : i + 1;
     // }, 2000);
 
-    // return () => clearInterval(action);
+    const action = setTimeout(() => {
+      dencrypt(service1[i]);
+      i = i === service1.length - 1 ? 0 : i + 1;
+    }, 5000);
+
+    return () => clearInterval(action);
   }, []);
 
 
