@@ -34,8 +34,8 @@ export default function Banner() {
 
   useEffect(() => {
     console.log('current bg vanta : ', animationContext.currentBg);
-    console.log('bg : ', bg);
-    console.log('vantaEffect : ', vantaEffect);
+    // console.log('bg : ', bg);
+    // console.log('vantaEffect : ', vantaEffect);
     // if (!vantaEffect || bg !== animationContext.currentBg) {
       if (!vantaEffect) {
       setVantaEffect(NET({

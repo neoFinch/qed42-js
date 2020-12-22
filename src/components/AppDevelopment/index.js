@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import './style.css';
 import { ScrollTrigger } from 'gsap/all';
@@ -13,6 +13,7 @@ export default function ApplicationDevelopment() {
   let firstPanelRef = useRef(null);
   let height = window.innerHeight;
   let animationContext = useContext(AnimationContext);
+  let [inViewport, setInViewport] = useState(false);
 
   useEffect(() => {
     
@@ -45,7 +46,7 @@ export default function ApplicationDevelopment() {
         start: "top 0px",
         pin: true,
         scrub: 1,
-        // markers: true,
+        markers: true,
         snap: {
           snapTo: 1/(sections.length - 1),
           duration: 0.8
@@ -53,34 +54,41 @@ export default function ApplicationDevelopment() {
         pinSpacing: false,
         onEnter: (e) => {
           console.log('on panel enter : ', e);
-        }
+        },
+        // scr
       }
     });
 
-    gsap.to(containerRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "+=133 80%",
-        end: "+=200 60%",
-        pin: true,
-        scrub: 1,
-        pinSpacing: false,
-        // markers: true,
-        onEnter: () => {
-          animationContext.setCurrentBg('#fff');
-        },
-        onLeaveBack: () => {
-          console.log('Leave BACK');
-          animationContext.setCurrentBg('#DD0031');
-        },
-      }
-    });
-
+    let options = {
+        root: null,
+        rootMarin: '0px',
+        threshold: 0.15
+    }
+    let Observer = new IntersectionObserver(changeBackground, options);
+    let target = document.querySelector('#scroller');
+    console.log('[target] : ', target);
+    Observer.observe(target);
   }, []);
 
+  const changeBackground = (entries, observer) =>  {
+    console.log('[entries] : ', entries);
+    entries.map( entry => {
+      if (entry.isIntersecting) {
+        console.log('[intersecting]');
+        setInViewport(true);
+        animationContext.setCurrentBg('#fff');
+      } else {
+        setInViewport(false);
+        animationContext.setCurrentBg('#DD0031');
+      }
+    })
+  }
 
   return (
-    <div className='pt-20 relative' style={{background: animationContext.currentBg}}>
+    <div 
+      className='pt-20 relative'
+      style={{background: animationContext.currentBg}}
+      >
       <div
         id='scroller'
         ref={containerRef}
@@ -94,15 +102,15 @@ export default function ApplicationDevelopment() {
             style={{height: `400px`, width: `${window.innerWidth - 42}px`}}>
               <div 
                 className='circle w-56 rounded-full h-56 self-center opacity-75' 
-                style={{background: ' red'}}></div>
+                style={{ background: inViewport ? 'red':'white' }}></div>
               <div 
                 className='circle w-56 rounded-full h-56 self-center opacity-50' 
-                style={{background: ' blue'}}></div>
+                style={{ background: inViewport ? 'blue':'white' }}></div>
               <div 
                 className='circle w-56 rounded-full h-56 self-center' 
-                style={{background: ' teal'}}></div>
+                style={{ background: inViewport ? 'teal':'white' }}></div>
           </div>
-          <div>
+          <div className='app-develop-heading'>
             <h1
               className='text-gray-700 text-6xl font-bold w-full'
               style={{ height: '100px', fontFamily: 'Montserrat', color: '#555' }}>

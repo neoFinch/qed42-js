@@ -8,14 +8,9 @@ export default function Service1 () {
   const { result, dencrypt } = useDencrypt();
 
   useEffect(() => {
-  let j = 0;
-
-  const action = setInterval(() => {
-    dencrypt(service[j]);
-    j = j === service.length - 1 ? 0 : j + 1;
-  }, 3000);
-
-  return () => clearInterval(action);
+    setTimeout(() => {
+      dencrypt('Progressive web application')
+    }, 2000)
   }, []);
 
   return(

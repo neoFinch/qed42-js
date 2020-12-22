@@ -13,9 +13,9 @@ function App() {
   const [splashScreenActive, setSplashScreenActive] = useState(false);
   const [currentBg, setCurrentBg] = useState('#161618');
 
-  // useEffect(() => {
-  //   setCurrentBg
-  // }, [currentBg]);
+  useEffect(() => {
+    document.body.scrollTop = 0;
+  }, []);
 
   return (
     <AnimationContext.Provider

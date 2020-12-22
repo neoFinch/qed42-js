@@ -44,13 +44,14 @@ export default function Client() {
 
 
     gsap.fromTo("#one",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#one",
         scrub: true,
         start: "center bottom",
@@ -59,13 +60,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#two",
-      {opacity: 0},
+      {opacity: 0.4},
       {
         duration: 0.7,
         opacity: 1,
-        yPercent: 0,
+        yPercent: '300px',
         ease: 'none',
         scrollTrigger :{
+          pinSpacing: false,
           trigger: "#two",
           scrub: true,
           start: "center bottom",
@@ -74,13 +76,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#three",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#three",
         scrub: true,
         start: "center bottom",
@@ -89,13 +92,14 @@ export default function Client() {
     })
  
     gsap.fromTo("#four",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#four",
         scrub: true,
         start: "center bottom",
@@ -104,13 +108,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#five",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#five",
         scrub: true,
         start: "center bottom",
@@ -119,13 +124,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#six",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#six",
         scrub: true,
         start: "center bottom",
@@ -134,13 +140,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#seven",
-      {opacity: 0},
+      {opacity: 0.4},
       {
         duration: 0.7,
         opacity: 1,
-        yPercent: 0,
+        yPercent: '300px',
         ease: 'none',
         scrollTrigger :{
+          pinSpacing: false,
           trigger: "#seven",
           scrub: true,
           start: "center bottom",
@@ -149,13 +156,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#eight",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#eight",
         scrub: true,
         start: "center bottom",
@@ -164,13 +172,14 @@ export default function Client() {
   })
 
     gsap.fromTo("#nine",
-      {opacity: 0},
+      {opacity: 0.4},
       {
         duration: 0.7,
         opacity: 1,
-        yPercent: 0,
+        yPercent: '300px',
         ease: 'none',
         scrollTrigger :{
+          pinSpacing: false,
           trigger: "#nine",
           scrub: true,
           start: "center bottom",
@@ -180,13 +189,14 @@ export default function Client() {
 
 
     gsap.fromTo("#ten",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#ten",
         scrub: true,
         start: "center bottom",
@@ -196,13 +206,14 @@ export default function Client() {
 
 
     gsap.fromTo("#eleven",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#eleven",
         scrub: true,
         start: "center bottom",
@@ -212,13 +223,14 @@ export default function Client() {
 
 
     gsap.fromTo("#twelve",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
       yPercent: 0,
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#twelve",
         scrub: true,
         start: "center bottom",
@@ -227,13 +239,14 @@ export default function Client() {
     })
 
     gsap.fromTo("#thirteen",
-      {opacity: 0},
+      {opacity: 0.4},
       {
       duration: 0.7,
       opacity: 1,
-      yPercent: 0,
+      yPercent: '300px',
       ease: 'none',
       scrollTrigger :{
+        pinSpacing: false,
         trigger: "#thirteen",
         scrub: true,
         start: "center bottom",
@@ -246,7 +259,9 @@ export default function Client() {
   return (
     <div 
       ref={headerRef}  
-      className='content-wrapper'  >
+      className='content-wrapper overflow-hidden pt-20'
+      // style={{maxHeight: '700px'}}
+      >
       <div ref={imageRef} className='content-images' >
         <div className="content-image-wrapper" id="one" >
           <img 

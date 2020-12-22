@@ -22,7 +22,7 @@ export default function ProjectHighlights() {
     tl.to(swiperWrapperRef.current, {
       opacity: 1,
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         trigger: swiperWrapperRef.current,
         start: "+=133 80%",
         end: "+=200 60%",
@@ -94,7 +94,6 @@ export default function ProjectHighlights() {
   const resetControllerPress = () => {
     setIsControllerPressed(false)
   }
-  console.log('transitions', transitions)
   return (
     <div
       ref={swiperWrapperRef}
@@ -126,7 +125,7 @@ export default function ProjectHighlights() {
             transitions.map(({ item, props, key }) => (
               <animated.div key={key} className="heading-wrapper absolute" style={{ ...props }}>
                 <h1 className="font-semibold text-5xl text-white" style={{ fontFamily: 'Montserrat' }}>
-                  {JSON.stringify(item)}
+                  {item.text}
                 </h1>
               </animated.div>
             ))

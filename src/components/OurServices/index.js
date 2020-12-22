@@ -16,17 +16,18 @@ import { useDencrypt } from "use-dencrypt-effect";
 export default function OurServices() {
 
   const service1 = ["/", ".", "-", "^", "*","REST API Solutions"];
+  // const [showOnScroll, setShowOnScroll] = useState(false);
 
   const { result, dencrypt } = useDencrypt();
   useEffect(() => {
     let i = 0;
+    dencrypt('REST API Solutions')
+    // const action = setInterval(() => {
+    //   dencrypt(service1[i]);
+    //   i = i === service1.length - 1 ? 0 : i + 1;
+    // }, 2000);
 
-    const action = setInterval(() => {
-      dencrypt(service1[i]);
-      i = i === service1.length - 1 ? 0 : i + 1;
-    }, 2000);
-
-    return () => clearInterval(action);
+    // return () => clearInterval(action);
   }, []);
 
 
@@ -39,6 +40,9 @@ export default function OurServices() {
         start: "+=133 90%",
         end: "+=200 60%",
         scrub: true,
+        onEnter: () => {
+          // setShowOnScroll(true);
+        },
         // markers: true,
         // toggleActions: "play reverse play reverse",
       }
@@ -81,21 +85,26 @@ export default function OurServices() {
     trail: 25
   })
 
+  // console.log('transition our services : ', transitions)
+
   return (
     <div
       ref={ourServicesRef}
-      className='our-services-wrapper flex flex-wrap min-h-screen w-full px-10 py-16 bg-white' 
-      style={{zIndex: '1', fontFamily: 'Montserrat'}}>
+      className='our-services-wrapper flex flex-wrap min-h-screen w-full px-10 py-16 bg-white overflow-hidden' 
+      style={{zIndex: '1', fontFamily: 'Montserrat', maxHeight: window.innerHeight}}>
       <h1 className='text-6xl font-semibold text-gray-500 w-full' style={{fontFamily: 'Montserrat'}}>Our Services</h1>
       <div className='w-full flex justify-around'>
         <div className='list-wrapper'>
-          <div {...bind} className="list w-screen " style={{ height: Math.max(...heights)}}>
-            {transitions.map(({ item, props: { xy, ...rest }, key }) => (
-              <a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
-                <div style={{ backgroundImage: item.css }} />
-              </a.div>
-            ))}
-          </div>
+          
+            <div {...bind} className="list w-screen " style={{ height: Math.max(...heights)}}>
+              {transitions.map(({ item, props: { xy, ...rest }, key }) => (
+                <a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
+                  <div style={{ backgroundImage: item.css }} />
+                </a.div>
+              ))}
+            </div>
+          
+
         </div>
         <div className='w-4/12 flex flex-col h-full relative'>
           <div className='w-screen mt-4 absolute'>
@@ -105,6 +114,9 @@ export default function OurServices() {
           <Service2 />
         </div>
       </div>
+      {
+        // console.log('transition our services : ', transitions)
+      }
     </div>
   )
 }
