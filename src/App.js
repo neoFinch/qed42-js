@@ -6,6 +6,7 @@ import OurServices from './components/OurServices';
 import AnimationContext from './contexts/animation-context';
 import Client from './components/Client';
 import Banner from './components/Banner';
+import ProjectHighlights from './components/ProjectHighlights';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   // useEffect(() => {
   //   setCurrentBg
   // }, [currentBg]);
-  
+
   return (
     <AnimationContext.Provider
       value={{
@@ -23,12 +24,16 @@ function App() {
         setCurrentBg,
         currentBg
       }}>
-      <div className='main-wrapper flex flex-wrap min-h-screen'>
-        {splashScreenActive ? 
+      <div 
+        className='main-wrapper flex flex-wrap min-h-screen' 
+        // style={{background: currentBg}}
+      >
+        {splashScreenActive ?
           <SplashScreen /> :
           <>
             <Navbar />
             <Banner />
+            <ProjectHighlights />
             <ApplicationDevelopment />
             <OurServices />
             <Client />

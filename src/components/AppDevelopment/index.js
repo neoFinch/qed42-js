@@ -13,7 +13,7 @@ export default function ApplicationDevelopment() {
   let firstPanelRef = useRef(null);
   let height = window.innerHeight;
   let animationContext = useContext(AnimationContext);
-  
+
   useEffect(() => {
     
     /**
@@ -36,9 +36,9 @@ export default function ApplicationDevelopment() {
      * PANELS ANIMATION
      */
     let sections = gsap.utils.toArray('.panel');
-    console.log({sections});
+    console.log({ sections });
     gsap.to(containerRef.current.childNodes, {
-      xPercent: -100 * (sections.length-1),
+      xPercent: -100 * (sections.length - 1),
       ease: 'none',
       scrollTrigger: {
         trigger: containerRef.current,
@@ -71,7 +71,7 @@ export default function ApplicationDevelopment() {
         },
         onLeaveBack: () => {
           console.log('Leave BACK');
-          animationContext.setCurrentBg('#161618');
+          animationContext.setCurrentBg('#DD0031');
         },
       }
     });
@@ -103,68 +103,68 @@ export default function ApplicationDevelopment() {
                 style={{background: ' teal'}}></div>
           </div>
           <div>
-            <h1 
-              className='text-gray-700 text-6xl font-bold w-full' 
-              style={{height: '100px', fontFamily: 'Montserrat', color: '#555'}}>
+            <h1
+              className='text-gray-700 text-6xl font-bold w-full'
+              style={{ height: '100px', fontFamily: 'Montserrat', color: '#555' }}>
               PRODUCT ENGINEERING
             </h1>
             <h2 
-              className='text-gray-70 text-5xl' style={{fontFamily: 'Sacramento', color: '#666'}}>
+              className='text-gray-70 text-5xl' style={{fontFamily: 'Sacramento', color: '#DD0031'}}>
               Javascript Application Development
             </h2>
-          </div>  
+          </div>
         </div>
 
         <div className='panel pt-20'>
-          <div className='w-full flex items-stretch self-center' style={{width: `${window.innerWidth - 42}px`}}>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px` }}>
             <div className='w-full self-center'>
-              <h1 className='text-5xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}}>
-                Scale your <br/>business with robust, <br/>and high-performing applications.
+              <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
+                Scale your <br />business with robust, <br />and high-performing applications.
               </h1>
             </div>
             <div className='w-full h-full self-stretch flex justify-center'>
               <img src={AppDevelopOne} />
             </div>
-          </div>  
+          </div>
         </div>
 
         <div className='panel pt-20'>
-          <div className='w-full flex items-stretch self-center' style={{width: `${window.innerWidth - 42}px`}}>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px` }}>
             <div className='w-full self-center'>
-              <h1 className='text-6xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}}>
+              <h1 className='text-6xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 What we offer
               </h1>
-              <h3 className='text-gray-700 text-3xl pr-12 text-' style={{fontFamily: 'Montserrat'}}>
-              QED42 possesses extensive experience and skill set in delivering tailor-made applications that evolve with your business. We have over 10 years of experience offering a wide range of mobile app & website development services.  Looking to enhance an existing app, build a new one, or test your idea with an MVP? We’ve got you covered at each stage of the development life cycle.
+              <h3 className='text-gray-700 text-3xl pr-12 text-' style={{ fontFamily: 'Montserrat' }}>
+                QED42 possesses extensive experience and skill set in delivering tailor-made applications that evolve with your business. We have over 10 years of experience offering a wide range of mobile app & website development services.  Looking to enhance an existing app, build a new one, or test your idea with an MVP? We’ve got you covered at each stage of the development life cycle.
               </h3>
             </div>
             <div className='w-full h-full self-stretch rounded overflow-hidden'>
               <img width='100%' src='https://codedote.com/img/bg-img/stat.gif' />
             </div>
-          </div>  
+          </div>
         </div>
 
         <div className='panel'>
-          <div className='w-full flex items-stretch self-center' style={{width: `${window.innerWidth - 42}px`}}>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px` }}>
             <div className='w-1/3 h-full self-stretch'>
-              <img 
-                src='https://onepatch.com/wp-content/uploads/2020/03/JAVASCRIPT_CIRCLE_NEW.gif'/>
+              <img
+                src='https://onepatch.com/wp-content/uploads/2020/03/JAVASCRIPT_CIRCLE_NEW.gif' />
             </div>
             <div className='w-2/3 self-center pl-12'>
-              <h1 className='text-6xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}}>
+              <h1 className='text-6xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 JavaScript App Development
               </h1>
-              <h3 className='text-gray-700 text-3xl pr-12 text-' style={{fontFamily: 'Montserrat'}}>
-              We render end-to-end JavaScript application development services including interactive web apps, web portals, custom JavaScript frameworks, content management systems, custom plug-ins, and dynamic enterprise grade websites. We are experts in developing highly interactive and responsive JavaScript web applications that fulfill your business goals and requirements.
+              <h3 className='text-gray-700 text-3xl pr-12 text-' style={{ fontFamily: 'Montserrat' }}>
+                We render end-to-end JavaScript application development services including interactive web apps, web portals, custom JavaScript frameworks, content management systems, custom plug-ins, and dynamic enterprise grade websites. We are experts in developing highly interactive and responsive JavaScript web applications that fulfill your business goals and requirements.
               </h3>
             </div>
-          </div>  
+          </div>
         </div>
 
         <div className='panel min-h-screen'>
-          <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
-            
-          </div>  
+          <div className='w-full' style={{ width: `${window.innerWidth - 42}px` }}>
+
+          </div>
         </div>
       </div>
     </div>

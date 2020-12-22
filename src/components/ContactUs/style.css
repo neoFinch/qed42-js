@@ -1,0 +1,32 @@
+#wrapper{
+  will-change: width, height;
+  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
+}
+
+.label-wrapper{
+  transition: all .4s ease-in-out;
+}
+.label-wrapper:hover{
+  transform: scale(1.1);
+}
+.submitBtn{
+  transition: all .4s ease-in-out;
+}
+.submitBtn:hover{
+  transform: scale(0.9);
+  background-color: rgb(231, 94, 49);
+}
+#input1, #input2, #input3{
+  transition: all 0.5s ease-in-out;
+}
+#input1:hover, #input2:hover, #input3:hover{
+  border-bottom-color: gray;
+}
+.submitBtnWrapper{
+  transition: all .4s ease-in-out;
+  height: 200px;
+  width: 200px;
+}
+.submitBtnWrapper:hover{
+  border: 1px solid gray;
+}
