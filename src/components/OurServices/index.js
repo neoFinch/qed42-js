@@ -39,27 +39,28 @@ export default function OurServices() {
   const ourServicesRef = useRef(null);
   useEffect(() => {
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ourServicesRef.current,
-        start: "+=133 90%",
-        end: "+=200 60%",
-        scrub: true,
-        onEnter: () => {
-          // setShowOnScroll(true);
-        },
-        // markers: true,
-        // toggleActions: "play reverse play reverse",
-      }
-    });
+    // const tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ourServicesRef.current,
+    //     start: "+=133 90%",
+    //     end: "+=200 60%",
+    //     scrub: true,
+    //     pinSpacing: false,
+    //     onEnter: () => {
+    //       // setShowOnScroll(true);
+    //     },
+    //     // markers: true,
+    //     // toggleActions: "play reverse play reverse",
+    //   }
+    // });
 
-    tl.fromTo(ourServicesRef.current, {
-      opacity: 0,
-    }, {
-      opacity: 1,
-      duration: 1,
-      // background: ''
-    })
+    // tl.fromTo(ourServicesRef.current, {
+    //   opacity: 0,
+    // }, {
+    //   opacity: 1,
+    //   duration: 1,
+    //   // background: ''
+    // })
   }, []);
   
   // Hook1: Tie media queries to the number of columns

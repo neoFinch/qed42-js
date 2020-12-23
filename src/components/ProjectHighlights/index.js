@@ -28,6 +28,7 @@ export default function ProjectHighlights() {
         end: "+=200 60%",
         onEnter: () => {
           animationContext.setCurrentBg('#DD0031');
+          animationContext.setOpenNav(false);
         },
         onLeaveBack: () => {
           animationContext.setCurrentBg('#171719')

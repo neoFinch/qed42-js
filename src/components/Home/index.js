@@ -20,7 +20,7 @@ export default function Home() {
     let filteredArr = refArray.filter(node => 
       {
         if (tempArr.includes(node.attributes.datatype.value) !== -1) {
-          console.log('node.attributes.datatype.value : ', node.attributes.datatype.value);
+          // console.log('node.attributes.datatype.value : ', node.attributes.datatype.value);
           return node;
         }
       }
@@ -36,7 +36,7 @@ export default function Home() {
       ease: "expo.out",
       stagger: 0.05
     }).then( x => {
-      console.log('x : ', x);
+      // console.log('x : ', x);
       gsap.to(splashWrapperRef.current, {
         background: '#171718',
         duration: 0.5
@@ -87,12 +87,10 @@ export default function Home() {
           ref={logoRef} 
           className='animated-logo-wrapper flex flex-wrap self-center'>
           {
+            animationContext.splashScreenActive &&
             createSquares()
           }
         </div>
-      </div>
-      <div>
-        
       </div>
     </>
   )

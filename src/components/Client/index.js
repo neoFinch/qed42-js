@@ -1,4 +1,4 @@
-import React, {useEffect, useRef}  from 'react';
+import React, {useContext, useEffect, useRef}  from 'react';
 import gsap from 'gsap';
 
 import NOVARTIS from '../../images/novartis-client-logo (1).png'
@@ -15,6 +15,7 @@ import UNITARIAN from '../../images/unitarian-client-logo.png';
 import WARNER from '../../images/warner-client-logo.png';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './style.css';
+import AnimationContext from '../../contexts/animation-context';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -25,33 +26,46 @@ export default function Client() {
   imageRef.current = []
   console.log("imageRef",imageRef);
 
+  let animationContext = useContext(AnimationContext);
+
   useEffect( () =>{
     gsap.from(headerRef.current,{
       duration: 0.7,
       autoAlpha:0,
       ease: 'none',
-      delay: 1
+      delay: 1,
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: "+=133 80%",
+        end: "+=200 60%",
+        onEnter: () => {
+          animationContext.setCurrentBg('#fff');
+        },
+        onLeaveBack: () => {
+          animationContext.setCurrentBg('#DD0031');
+        }
+      }
     })
 
 
     gsap.fromTo("#one",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
       yPercent: '300px',
       ease: 'none',
-      scrollTrigger :{
+      scrollTrigger : {
         pinSpacing: false,
         trigger: "#one",
         scrub: true,
-        start: "center bottom",
         toggleActions:'play none none reverse',
+        // markers: true,
       }
     })
 
     gsap.fromTo("#two",
-      {opacity: 0.4},
+      {opacity: 0},
       {
         duration: 0.7,
         opacity: 1,
@@ -67,7 +81,7 @@ export default function Client() {
     })
 
     gsap.fromTo("#three",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -83,7 +97,7 @@ export default function Client() {
     })
  
     gsap.fromTo("#four",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -99,7 +113,7 @@ export default function Client() {
     })
 
     gsap.fromTo("#five",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -115,7 +129,7 @@ export default function Client() {
     })
 
     gsap.fromTo("#six",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -131,7 +145,7 @@ export default function Client() {
     })
 
     gsap.fromTo("#seven",
-      {opacity: 0.4},
+      {opacity: 0},
       {
         duration: 0.7,
         opacity: 1,
@@ -147,7 +161,7 @@ export default function Client() {
     })
 
     gsap.fromTo("#eight",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -163,7 +177,7 @@ export default function Client() {
   })
 
     gsap.fromTo("#nine",
-      {opacity: 0.4},
+      {opacity: 0},
       {
         duration: 0.7,
         opacity: 1,
@@ -180,7 +194,7 @@ export default function Client() {
 
 
     gsap.fromTo("#ten",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -197,7 +211,7 @@ export default function Client() {
 
 
     gsap.fromTo("#eleven",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -214,7 +228,7 @@ export default function Client() {
 
 
     gsap.fromTo("#twelve",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -230,7 +244,7 @@ export default function Client() {
     })
 
     gsap.fromTo("#thirteen",
-      {opacity: 0.4},
+      {opacity: 0},
       {
       duration: 0.7,
       opacity: 1,
@@ -250,8 +264,11 @@ export default function Client() {
   return (
     <div 
       ref={headerRef}  
-      className='content-wrapper overflow-hidden pt-20'
-      // style={{maxHeight: '700px'}}
+      className='content-wrapper overflow-hidden py-40 min-h-screen'
+      style={{
+        maxHeight: '700px',
+        background: animationContext.currentBg
+      }}
       >
       <div ref={imageRef} className='content-images' >
         <div className="content-image-wrapper" id="one" >

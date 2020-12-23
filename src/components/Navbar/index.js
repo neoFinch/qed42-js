@@ -1,18 +1,33 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import logo from '../../assets/images/logo-qed.png';
 import QedLogo from '../../assets/images/qed-logo-1.svg';
 import Menu from '../../assets/images/menu.svg';
 import MenuOpen from '../../assets/images/menu_open.svg';
 import gsap from 'gsap';
 import './style.css';
+import AnimationContext from '../../contexts/animation-context';
+import { lightOrDark } from '../../services/helper';
 
 export default function Navbar() {
 
+  let animationContext = useContext(AnimationContext)
   let navbarRef = useRef(null);
   let logoRef = useRef(null);
   let menuRef = useRef(null);
   let menuLinkRef = useRef(null)
-  const [openNav, setOpenNav] = useState(false);
+  const [navBg, setNavBg] = useState('transparent');
+  
+
+  useEffect(() => {
+    let bgType = lightOrDark(animationContext.currentBg);
+    setNavBg(bgType);
+    gsap.to(menuLinkRef.current.childNodes, {
+      opacity: 1,
+      color: bgType === 'light' ? '#111': '#fff'
+    })
+  }, [animationContext.currentBg])
+
+  
 
   useEffect(() => {
     gsap.fromTo(logoRef.current, {
@@ -36,19 +51,11 @@ export default function Navbar() {
   useEffect(() => {
     let tl = gsap.timeline();
 
-    if (openNav) {
-      tl
-      .to(menuLinkRef.current.childNodes, {
-        opacity: 0,
-        duration: 0.3,
-        stagger: 0.1
-      })
-      .to(menuLinkRef.current, { width: 0, duration: 0.3 })
-    } else {
+    if (animationContext.openNav) {
       let reverseNode = [...menuLinkRef.current.childNodes].reverse();
       tl
       .to(menuLinkRef.current, {
-        width: 'auto',
+        width: '100%',
         overflow: 'auto',
         duration: 0.3
       })
@@ -57,8 +64,16 @@ export default function Navbar() {
         duration: 0.3,
         stagger: 0.1
       })
+    } else {
+      tl
+      .to(menuLinkRef.current.childNodes, {
+        opacity: 0,
+        duration: 0.3,
+        stagger: 0.1
+      })
+      .to(menuLinkRef.current, { width: 0, duration: 0.3 })
     }
-  }, [openNav])
+  }, [animationContext.openNav])
   
   return (
     <div
@@ -72,23 +87,32 @@ export default function Navbar() {
       </div>
       <div 
         ref={menuRef} 
+        style={{backdropFilter: 'blur(5px)'}}
         className='flex justify-end menu-wrapper h-8 w-5/12 self-center'>
         <ul 
           ref={menuLinkRef}
-          className='self-end'>
+          style={{fontSize: 'bold'}}
+          className={'self-end'}
+          >
           <li>Home</li>
           <li>Product Engineering</li>
           <li>Our Services</li>
           <li>Contact Us</li>
         </ul>
         <button 
-          onClick={() => setOpenNav(!openNav)} 
+          onClick={() => animationContext.setOpenNav(!animationContext.openNav)} 
           className='invert-colors cursor-pointer focus:outline-none pt-1'>
           {
-            openNav ? 
-            <img className='outline-none' src={Menu}/>
+            animationContext.openNav ? 
+            <img
+              className={navBg === 'light' 
+                ? 'transform scale-110 outline-none invert-colors' 
+                : 'transform scale-110 outline-none'}
+              src={MenuOpen} />
             :
-            <img className='transform scale-110 outline-none' src={MenuOpen} />
+            <img 
+              className={navBg === 'light' ? 'outline-none invert-colors' : 'outline-none'}
+              src={Menu}/>
           }
         </button>
       </div>

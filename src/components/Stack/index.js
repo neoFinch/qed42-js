@@ -18,6 +18,7 @@ export default function Stack({ image, background, filter ,width }) {
         let customWidth = width == undefined ? '50%': width; 
         return (
         <animated.div
+          key={index}
           style={{
             opacity,
             background,

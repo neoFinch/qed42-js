@@ -51,11 +51,27 @@ export default function Banner() {
   }, [vantaEffect, animationContext.currentBg])
   
   return (
-    <div ref={bannerRef} className='banner-wrapper min-h-screen flex p-10 w-full pt-40'>
-      <div className='flex w-full flex-wrap justify-center text-center font-bold' style={{fontFamily: 'Roboto, sans-serif'}}>
+    <div ref={bannerRef} className='banner-wrapper min-h-screen flex p-10 w-full pt-40 relative'>
+      {
+        animationContext.currentBg === '#DD0031' &&
+        <div 
+          className='top-0 left-0 absolute min-h-screen z-10 w-full' 
+          style={{
+            backgroundColor: animationContext.currentBg
+          }}>
+        </div>
+      }
+      <div 
+        className='flex w-full flex-wrap justify-center text-center font-bold' 
+        style={{fontFamily: 'Roboto, sans-serif'}}>
         <div className='flex flex-wrap self-center justify-center'>
           <img className='w-2/3 pb-20' style={{filter: 'invert(1)'}} src={takingDigitalSvg} />
-          <div className='w-full text-center'>
+          
+          <div className='w-full text-center z-0'>
+          {
+            animationContext.currentBg === '#DD0031' ?
+            <img src={forwardSvg}/>
+            :
             <VFX.VFXProvider>
               <VFX.VFXImg
                 className='w-1/2 m-auto'
@@ -63,6 +79,7 @@ export default function Banner() {
                 shader="rgbGlitch"
               />
             </VFX.VFXProvider>
+          }
           </div>
         </div>
       </div>
