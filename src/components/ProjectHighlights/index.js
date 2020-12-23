@@ -2,17 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useTransition, animated, config } from 'react-spring'
 import AnimationContext from '../../contexts/animation-context';
 import './style.css'
-import NextButton from '../../assets/images/next.svg'
-import PreviousButton from '../../assets/images/previous.svg'
 import Deck from '../CardDeck';
 import gsap from 'gsap';
 
 
 export default function ProjectHighlights() {
 
-  const [controlVelocity, setControlVel] = useState(0)
-  const [controlDir, setControlDir] = useState(0)
-  const [isControllerPressed, setIsControllerPressed] = useState(false)
   const [index, setIndex] = useState(0)
   let animationContext = useContext(AnimationContext);
   let swiperWrapperRef = useRef(null);
@@ -28,10 +23,12 @@ export default function ProjectHighlights() {
         end: "+=200 60%",
         onEnter: () => {
           animationContext.setCurrentBg('#DD0031');
+          animationContext.setShowRedBg(true);
           animationContext.setOpenNav(false);
         },
         onLeaveBack: () => {
           animationContext.setCurrentBg('#171719')
+          animationContext.setShowRedBg(false);
         }
       }
     })
@@ -39,15 +36,15 @@ export default function ProjectHighlights() {
 
   const cards = [
     {
-      text: 'Making Legal Language Digitally Accessible - ILAO',
+      text: 'ILAO - Digitised Legal Accessibility',
       id: 0
     },
     {
-      text: 'Powering a Multi-vendor E-commerce Platform with Gatsby',
+      text: 'Shop The Area - Gatsby Powered Multi-vendor E-commerce Platform',
       id: 1
     },
     {
-      text: 'Marketing CMS for Grofers Native Mobile App',
+      text: 'Grofers - Marketing CMS for Mobile App',
       id: 2
     },
     {
@@ -55,19 +52,19 @@ export default function ProjectHighlights() {
       id: 3
     },
     {
-      text: "Enabling Ashoka.org's Presence Across 90+ Geographies with Localisation",
+      text: "Ashoka - Localised Presence Across Geographies",
       id: 4
     },
     {
-      text: 'Enabled Multi-site rollouts for SABMiller with Drupal',
+      text: 'SABMiller - Drupal Multi-site',
       id: 5
     },
     {
-      text: 'Multi-platform Real estate app powered by Decoupled Drupal - Clasifika',
+      text: 'Clasifika - Decoupled Drupal Mobile App',
       id: 6
     },
     {
-      text: 'Enabling Educators at Azim Premji Foundation',
+      text: 'Azim Premji Foundation - Enabling Educators',
       id: 7
     }
   ]
@@ -78,49 +75,13 @@ export default function ProjectHighlights() {
     leave: { opacity: 0 },
     config: config.molasses,
   })
-
-  const flipCard = (dir) => {
-    dir === 'right' ? setControlDir(1) : setControlDir(-1)
-    setControlVel(0.25)
-    setTimeout(() => {
-      setControlDir(0)
-      setControlVel(0)
-      setIsControllerPressed(false)
-    }, 200)
-  }
-
-  const handleController = () => {
-    setIsControllerPressed(true)
-  }
-  const resetControllerPress = () => {
-    setIsControllerPressed(false)
-  }
   return (
     <div
       ref={swiperWrapperRef}
-      className="overflow-x-hidden flex w-full justify-around"
+      className="overflow-x-hidden flex items-center w-full"
       style={{ height: window.innerHeight, backgroundColor: animationContext.currentBg }}
     >
-      <div className="align-center justify-center flex flex-col">
-        <img
-          id="controller"
-          src={NextButton}
-          alt="next button"
-          onClick={() => { flipCard('right') }}
-          onMouseDown={handleController}
-          onMouseUp={resetControllerPress}
-        />
-        <div className="h-5" />
-        <img
-          id="controller"
-          src={PreviousButton}
-          alt="previous button"
-          onClick={() => { flipCard('left') }}
-          onMouseDown={handleController}
-          onMouseUp={resetControllerPress}
-        />
-      </div>
-      <div className="flex w-4/5 flex-row justify-around">
+      <div className="flex w-full flex-row justify-center">
         <div className="relative w-1/3 flex items-center justify-center">
           {
             transitions.map(({ item, props, key }) => (
@@ -133,12 +94,7 @@ export default function ProjectHighlights() {
           }
         </div>
         <div className=" relative w-1/2 flex items-center justify-center">
-          <Deck
-            controlDir={controlDir}
-            controlVelocity={controlVelocity}
-            isControllerPressed={isControllerPressed}
-            setIndex={setIndex}
-          />
+          <Deck setIndex={setIndex} />
         </div>
       </div>
     </div>

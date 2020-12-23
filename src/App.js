@@ -7,6 +7,7 @@ import AnimationContext from './contexts/animation-context';
 import Client from './components/Client';
 import Banner from './components/Banner';
 import ProjectHighlights from './components/ProjectHighlights';
+import ContactUs from './components/ContactUs';
 
   function checkSplashLoaderStatus() {
     if (window.performance) {
@@ -28,6 +29,7 @@ function App() {
   
   const [splashScreenActive, setSplashScreenActive] = useState(status);
   const [currentBg, setCurrentBg] = useState('#161618');
+  const [showRedBg, setShowRedBg] = useState(false);
   const [openNav, setOpenNav] = useState(true);
 
   // console.log('first : ', splashScreenActive);
@@ -55,7 +57,9 @@ function App() {
         currentBg,
         splashScreenActive,
         openNav,
-        setOpenNav
+        setOpenNav,
+        showRedBg,
+        setShowRedBg
       }}>
       <div 
         className='main-wrapper flex flex-wrap min-h-screen' 
@@ -71,6 +75,7 @@ function App() {
             <Client />
             <OurServices />
             <ApplicationDevelopment />
+            <ContactUs />
           </>
         }
 

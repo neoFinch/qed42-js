@@ -53,7 +53,7 @@ export default function Banner() {
   return (
     <div ref={bannerRef} className='banner-wrapper min-h-screen flex p-10 w-full pt-40 relative'>
       {
-        animationContext.currentBg === '#DD0031' &&
+        animationContext.showRedBg &&
         <div 
           className='top-0 left-0 absolute min-h-screen z-10 w-full' 
           style={{
@@ -69,8 +69,8 @@ export default function Banner() {
           
           <div className='w-full text-center z-0'>
           {
-            animationContext.currentBg === '#DD0031' ?
-            <img src={forwardSvg}/>
+            animationContext.showRedBg ?
+            <img className='w-1/2 m-auto' src={forwardSvg}/>
             :
             <VFX.VFXProvider>
               <VFX.VFXImg

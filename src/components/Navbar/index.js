@@ -49,8 +49,8 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    
     let tl = gsap.timeline();
-
     if (animationContext.openNav) {
       let reverseNode = [...menuLinkRef.current.childNodes].reverse();
       tl
@@ -60,6 +60,7 @@ export default function Navbar() {
         duration: 0.3
       })
       .to(reverseNode, {
+        delay: 2,
         opacity: 1,
         duration: 0.3,
         stagger: 0.1

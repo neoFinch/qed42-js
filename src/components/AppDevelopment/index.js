@@ -16,7 +16,7 @@ import MONGODB from '../../assets/images/mongodb-LOGO.png';
 import NEXT from '../../assets/images/next-js-logo.png';
 
 
-export default function ApplicationDevelopment() {  
+export default function ApplicationDevelopment() {
 
   let circleWrapperRef = useRef(null);
   let containerRef = useRef(null);
@@ -26,7 +26,7 @@ export default function ApplicationDevelopment() {
   let [inViewport, setInViewport] = useState(false);
 
   useEffect(() => {
-    
+
     /**
      * CIRCLE ANIMATION
      */
@@ -36,13 +36,13 @@ export default function ApplicationDevelopment() {
       opacity: 0,
       x: 900,
     },
-    {
-      opacity: 0.6,
-      x: -750,
-      duration: 2.2,
-      stagger: 0.2,
-    }).repeat(-1).yoyo();
-    
+      {
+        opacity: 0.6,
+        x: -750,
+        duration: 2.2,
+        stagger: 0.2,
+      }).repeat(-1).yoyo();
+
     /**
      * PANELS ANIMATION
      */
@@ -58,7 +58,7 @@ export default function ApplicationDevelopment() {
         scrub: 1,
         // markers: true,
         snap: {
-          snapTo: 1/(sections.length - 1),
+          snapTo: 1 / (sections.length - 1),
           duration: 0.8
         },
         pinSpacing: false,
@@ -70,9 +70,9 @@ export default function ApplicationDevelopment() {
     });
 
     let options = {
-        root: null,
-        rootMarin: '0px',
-        threshold: 0.15
+      root: null,
+      rootMarin: '0px',
+      threshold: 0.15
     }
     let Observer = new IntersectionObserver(changeBackground, options);
     let target = document.querySelector('#scroller');
@@ -80,9 +80,9 @@ export default function ApplicationDevelopment() {
     Observer.observe(target);
   }, []);
 
-  const changeBackground = (entries, observer) =>  {
+  const changeBackground = (entries, observer) => {
     console.log('[entries] : ', entries);
-    entries.map( entry => {
+    entries.map(entry => {
       if (entry.isIntersecting) {
         console.log('[intersecting]');
         setInViewport(true);
@@ -95,30 +95,30 @@ export default function ApplicationDevelopment() {
   }
 
   return (
-    <div 
+    <div
       className='pt-20 relative'
-      style={{background: animationContext.currentBg}}
-      >
+      style={{ background: animationContext.currentBg }}
+    >
       <div
         id='scroller'
         ref={containerRef}
-        className='relative app-develop-wrapper flex overflow-x-hidden overflow-y-hidden' 
-        style={{height: `${height * 5}px`, width: `${window.innerWidth}px`}}
-        >
-        <div className='panel' ref={firstPanelRef}>
+        className='relative app-develop-wrapper flex overflow-x-hidden overflow-y-hidden'
+        style={{ height: `${height * 5}px`, width: `${window.innerWidth}px` }}
+      >
+        <div className='panel pl-12' ref={firstPanelRef}>
           <div
             ref={circleWrapperRef}
-            className='circle-wrapper w-full flex' 
-            style={{height: `400px`, width: `${window.innerWidth - 42}px`}}>
-              <div 
-                className='circle w-56 rounded-full h-56 self-center opacity-75' 
-                style={{ background: inViewport ? 'red':'white' }}></div>
-              <div 
-                className='circle w-56 rounded-full h-56 self-center opacity-50' 
-                style={{ background: inViewport ? 'blue':'white' }}></div>
-              <div 
-                className='circle w-56 rounded-full h-56 self-center' 
-                style={{ background: inViewport ? 'teal':'white' }}></div>
+            className='circle-wrapper w-full flex'
+            style={{ height: `400px`, width: `${window.innerWidth - 42}px` }}>
+            <div
+              className='circle w-56 rounded-full h-56 self-center opacity-75'
+              style={{ background: inViewport ? 'red' : 'white' }}></div>
+            <div
+              className='circle w-56 rounded-full h-56 self-center opacity-50'
+              style={{ background: inViewport ? 'blue' : 'white' }}></div>
+            <div
+              className='circle w-56 rounded-full h-56 self-center'
+              style={{ background: inViewport ? 'teal' : 'white' }}></div>
           </div>
           <div className='app-develop-heading'>
             <h1
@@ -126,76 +126,79 @@ export default function ApplicationDevelopment() {
               style={{ height: '100px', fontFamily: 'Montserrat', color: '#555' }}>
               PRODUCT ENGINEERING
             </h1>
-            <h2 
-              className='text-gray-70 text-5xl' style={{fontFamily: 'Sacramento', color: '#DD0031'}}>
+            <h2
+              className='text-gray-70 text-5xl' style={{ fontFamily: 'Sacramento', color: '#DD0031' }}>
               Javascript Application Development
             </h2>
           </div>
         </div>
 
-        <div className='panel pt-20'>
-          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px` }}>
+        <div className='panel'>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px`, height: height }}>
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 Scale your <br />business with robust, <br />and high-performing applications.
               </h1>
             </div>
-            <div className='w-full h-full self-stretch flex justify-center'>
+            <div className='w-full h-full self-stretch items-center flex justify-center'>
               <img src={AppDevelopOne} />
             </div>
           </div>
         </div>
 
         <div className='panel'>
-          <div className='w-full flex items-stretch min-h-screen' style={{ width: `${window.innerWidth - 42}px` }}>
+          <div className='w-full flex self-center' style={{ width: `${window.innerWidth - 42}px`, height: height }}>
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 What we offer
               </h1>
-              <h3 className='text-gray-700 text-2xl pr-12 text-' style={{ fontFamily: 'Montserrat' }}>
+              <h3 className='text-gray-700 text-2xl pr-12 text-justify' style={{ fontFamily: 'Montserrat' }}>
                 Looking to enhance an existing app, build a new one, or test your idea with an MVP? We’ve got you covered at each stage of the development life cycle.
               </h3>
             </div>
-            <div className='w-full h-full self-center rounded overflow-hidden'>
+            <div className='w-full rounded overflow-hidden self-stretch flex items-center justify-center' style={{ height: height }}>
               <img width='100%' src='https://codedote.com/img/bg-img/stat.gif' />
             </div>
           </div>
         </div>
 
         <div className='panel'>
-          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px` }}>
-            <div className='w-1/3 h-full self-stretch'>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px`, height: height }}>
+            <div className='w-1/3 h-full self-stretch flex items-center justify-center'>
               <img
                 src='https://onepatch.com/wp-content/uploads/2020/03/JAVASCRIPT_CIRCLE_NEW.gif' />
             </div>
             <div className='w-2/3 self-center pl-12'>
-              <h1 className='text-6xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
-                JavaScript App Development
+              <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
+                App Development
               </h1>
-              <h3 className='text-gray-700 text-3xl pr-12 text-' style={{ fontFamily: 'Montserrat' }}>
-                We render end-to-end JavaScript application development services including interactive web apps, web portals, custom JavaScript frameworks, content management systems, custom plug-ins, and dynamic enterprise grade websites. We are experts in developing highly interactive and responsive JavaScript web applications that fulfill your business goals and requirements.
+              <h3 className='text-gray-700 text-2xl pr-12 text-justify' style={{ fontFamily: 'Montserrat' }}>
+                We are experts in developing highly interactive and responsive JavaScript web applications that fulfill your business goals and requirements.
               </h3>
             </div>
           </div>
         </div>
 
         <div className='panel'>
-          <div className="w-full flex items-stretch self-center"  style={{width: `${window.innerWidth - 42}px`}} >
-            <div className='w-full pt-12'>
-              <h1 className='text-6xl text-gray-700 font-semibold' style={{fontFamily: 'Montserrat'}} >
-                Frameworks and Libraries
+          <div className="w-full flex items-stretch self-center" style={{ width: `${window.innerWidth - 42}px`, height: height }} >
+            <div className='w-full self-center'>
+              <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }} >
+                Tech Stack
               </h1>
-            </div>  
+              <h3 className='text-gray-700 text-2xl pr-12 text-justify' style={{ fontFamily: 'Montserrat' }}>
+                We develop apps with next-gen technologies to best suit your customer base.
+              </h3>
+            </div>
             <div className="main-stack-wrapper">
-              <div className="main w-full h-full p-12">
-                <Stack image={NODE} background="#333333"  />
-                <Stack image={MONGODB} background='#B7E6CB'  />
+              <div className="main p-12">
+                <Stack image={NODE} background="#333333" />
+                <Stack image={MONGODB} background='#B7E6CB' />
                 <Stack image={GRAPHQL} background="#A9A9A9" width="100%" />
-                <Stack image={GATSBY}  background='#FF961E' />
-                <Stack image={REACT}  background='#ddd' width="100%" />
+                <Stack image={GATSBY} background='#FF961E' />
+                <Stack image={REACT} background='#ddd' width="100%" />
                 <Stack image={REACT_NATIVE} background='#262C31' width="100%" />
-                <Stack image={AWS}  background='#FFB42C' />
-                <Stack image={NEXT}  filter='invert(1)'  background="#000000" />
+                <Stack image={AWS} background='#FFB42C' />
+                <Stack image={NEXT} filter='invert(1)' background="#000000" />
                 <Stack image={PWA} background='#E16038' />
               </div>
             </div>
@@ -203,8 +206,8 @@ export default function ApplicationDevelopment() {
         </div>
 
         <div className='panel min-h-screen'>
-          <div className='w-full' style={{width: `${window.innerWidth - 42}px`}}>
-          </div>  
+          <div className='w-full' style={{ width: `${window.innerWidth - 42}px` }}>
+          </div>
         </div>
       </div>
     </div>
