@@ -17,8 +17,8 @@ export default function ContactUs() {
   const { height, width, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
-    from: { height: '20%', width: "35%", background: 'lightgray' },
-    to: { height: open ? '100%' : '20%', width: open ? '100%' : "35%", background: open ? 'white' : 'lightgray' }
+    from: { height: '18%', width: "30%", background: '#e2e8f0' },
+    to: { height: open ? '100%' : '18%', width: open ? '100%' : "30%", background: open ? 'white' : '#e2e8f0' }
   })
 
   const adjustFocus = (id) => {
@@ -38,7 +38,7 @@ export default function ContactUs() {
   }
 
   return (
-    <div className="w-full flex items-center justify-center" style={{ height: window.innerHeight }}>
+    <div className="w-full flex items-center justify-center z-20" style={{ height: window.innerHeight }}>
       <animated.div
         id="wrapper"
         className="rounded-full flex items-center justify-center cursor-pointer"
@@ -50,9 +50,9 @@ export default function ContactUs() {
               className="label-wrapper cursor-pointer text-center"
               onClick={() => setOpen(true)}
             >
-              <label className="font-semibold text-6xl cursor-pointer align-middle" style={{ fontFamily: 'Montserrat' }} >
+              <h1 className="font-semibold text-5xl cursor-pointer" style={{ fontFamily: 'Montserrat' }} >
                 Contact Us?
-            </label>
+              </h1>
             </div>
           ) : null
         }
