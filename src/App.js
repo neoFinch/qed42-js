@@ -7,6 +7,7 @@ import AnimationContext from './contexts/animation-context';
 import Client from './components/Client';
 import Banner from './components/Banner';
 import ProjectHighlights from './components/ProjectHighlights';
+import ContactUs from './components/ContactUs';
 
 function App() {
 
@@ -24,9 +25,9 @@ function App() {
         setCurrentBg,
         currentBg
       }}>
-      <div 
-        className='main-wrapper flex flex-wrap min-h-screen' 
-        // style={{background: currentBg}}
+      <div
+        className='main-wrapper flex flex-wrap min-h-screen'
+      // style={{background: currentBg}}
       >
         {splashScreenActive ?
           <SplashScreen /> :
@@ -34,9 +35,10 @@ function App() {
             <Navbar />
             <Banner />
             <ProjectHighlights />
-            <ApplicationDevelopment />
-            <OurServices />
             <Client />
+            <OurServices />
+            <ApplicationDevelopment />
+            <ContactUs />
           </>
         }
 
