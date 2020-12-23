@@ -147,7 +147,7 @@ export default function ApplicationDevelopment() {
         </div>
 
         <div className='panel'>
-          <div className='w-full flex self-center' style={{ width: `${window.innerWidth - 42}px`, height: window.height }}>
+          <div className='w-full flex self-center' style={{ width: `${window.innerWidth - 42}px`, height: height }}>
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 What we offer
