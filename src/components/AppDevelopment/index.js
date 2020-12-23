@@ -134,7 +134,7 @@ export default function ApplicationDevelopment() {
         </div>
 
         <div className='panel'>
-          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px`, height: window.innerHeight }}>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px`, height: height }}>
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 Scale your <br />business with robust, <br />and high-performing applications.
@@ -147,7 +147,7 @@ export default function ApplicationDevelopment() {
         </div>
 
         <div className='panel'>
-          <div className='w-full flex self-center' style={{ width: `${window.innerWidth - 42}px`, height: window.innerHeight }}>
+          <div className='w-full flex self-center' style={{ width: `${window.innerWidth - 42}px`, height: window.height }}>
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }}>
                 What we offer
@@ -156,14 +156,14 @@ export default function ApplicationDevelopment() {
                 Looking to enhance an existing app, build a new one, or test your idea with an MVP? We’ve got you covered at each stage of the development life cycle.
               </h3>
             </div>
-            <div className='w-full rounded overflow-hidden self-stretch flex items-center justify-center' style={{ height: window.innerHeight }}>
+            <div className='w-full rounded overflow-hidden self-stretch flex items-center justify-center' style={{ height: height }}>
               <img width='100%' src='https://codedote.com/img/bg-img/stat.gif' />
             </div>
           </div>
         </div>
 
         <div className='panel'>
-          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px`, height: window.innerHeight }}>
+          <div className='w-full flex items-stretch self-center' style={{ width: `${window.innerWidth - 42}px`, height: height }}>
             <div className='w-1/3 h-full self-stretch flex items-center justify-center'>
               <img
                 src='https://onepatch.com/wp-content/uploads/2020/03/JAVASCRIPT_CIRCLE_NEW.gif' />
@@ -180,7 +180,7 @@ export default function ApplicationDevelopment() {
         </div>
 
         <div className='panel'>
-          <div className="w-full flex items-stretch self-center" style={{ width: `${window.innerWidth - 42}px`, height: window.innerHeight }} >
+          <div className="w-full flex items-stretch self-center" style={{ width: `${window.innerWidth - 42}px`, height: height }} >
             <div className='w-full self-center'>
               <h1 className='text-5xl text-gray-700 font-semibold' style={{ fontFamily: 'Montserrat' }} >
                 Tech Stack
