@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo, useContext } from 'react';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import './style.css'
@@ -11,12 +11,14 @@ import data from '../../data'
 import Service1 from './service1';
 import Service2 from './service2'
 import { useDencrypt } from "use-dencrypt-effect";
+import AnimationContext from '../../contexts/animation-context';
 
 
 export default function OurServices() {
 
   const service1 = ["/", ".", "-", "^", "*","REST API Solutions"];
   // const [showOnScroll, setShowOnScroll] = useState(false);
+  let animationContext = useContext(AnimationContext)
 
   const { result, dencrypt } = useDencrypt();
   useEffect(() => {
@@ -39,28 +41,23 @@ export default function OurServices() {
   const ourServicesRef = useRef(null);
   useEffect(() => {
 
-    // const tl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ourServicesRef.current,
-    //     start: "+=133 90%",
-    //     end: "+=200 60%",
-    //     scrub: true,
-    //     pinSpacing: false,
-    //     onEnter: () => {
-    //       // setShowOnScroll(true);
-    //     },
-    //     // markers: true,
-    //     // toggleActions: "play reverse play reverse",
-    //   }
-    // });
-
-    // tl.fromTo(ourServicesRef.current, {
-    //   opacity: 0,
-    // }, {
-    //   opacity: 1,
-    //   duration: 1,
-    //   // background: ''
-    // })
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ourServicesRef.current,
+        start: "+=133 90%",
+        end: "+=200 60%",
+        // markers: true,
+        pinSpacing: false,
+        onEnter: () => {
+          animationContext.setCurrentBg('#1A212C')
+        },
+        onLeaveBack: () => {
+          animationContext.setCurrentBg('#fff')
+        }
+        // markers: true,
+        // toggleActions: "play reverse play reverse",
+      }
+    });
   }, []);
   
   // Hook1: Tie media queries to the number of columns
@@ -96,7 +93,7 @@ export default function OurServices() {
   return (
     <div
       ref={ourServicesRef}
-      className='our-services-wrapper flex flex-wrap min-h-screen w-full px-10 py-16 bg-white overflow-hidden' 
+      className='our-services-wrapper flex flex-wrap min-h-screen w-full px-10 py-16 overflow-hidden' 
       style={{zIndex: '1', fontFamily: 'Montserrat', maxHeight: window.innerHeight}}>
       <h1 className='text-6xl font-semibold text-gray-500 w-full' style={{fontFamily: 'Montserrat'}}>Our Services</h1>
       <div className='w-full flex justify-around'>

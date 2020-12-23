@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ApplicationDevelopment from './components/AppDevelopment';
 import SplashScreen from './components/Home';
 import Navbar from './components/Navbar';
@@ -8,6 +8,7 @@ import Client from './components/Client';
 import Banner from './components/Banner';
 import ProjectHighlights from './components/ProjectHighlights';
 import ContactUs from './components/ContactUs';
+import gsap from 'gsap';
 
   function checkSplashLoaderStatus() {
     if (window.performance) {
@@ -32,6 +33,8 @@ function App() {
   const [showRedBg, setShowRedBg] = useState(false);
   const [openNav, setOpenNav] = useState(true);
 
+  const appRef = useRef(null);
+
   // console.log('first : ', splashScreenActive);
   // if (window.performance) {
   //   console.info("window.performance works fine on this browser");
@@ -46,8 +49,11 @@ function App() {
   // }
 
   useEffect(() => {
-    
-  }, []);
+    gsap.to(appRef.current, {
+      duration: 1,
+      background: currentBg
+    })
+  }, [currentBg]);
 
   return (
     <AnimationContext.Provider
@@ -62,9 +68,10 @@ function App() {
         setShowRedBg
       }}>
       <div 
+        ref={appRef}
         className='main-wrapper flex flex-wrap min-h-screen' 
         style={{
-          // maxHeight: window.innerHeight
+          // background: currentBg
         }}>
         {splashScreenActive ?
           <SplashScreen /> :

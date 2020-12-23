@@ -23,7 +23,7 @@ export default function Navbar() {
     setNavBg(bgType);
     gsap.to(menuLinkRef.current.childNodes, {
       opacity: 1,
-      color: bgType === 'light' ? '#111': '#fff'
+      color: bgType === 'light' ? '#555': '#fff'
     })
   }, [animationContext.currentBg])
 
@@ -50,35 +50,23 @@ export default function Navbar() {
 
   useEffect(() => {
     
-    let tl = gsap.timeline();
     if (animationContext.openNav) {
-      let reverseNode = [...menuLinkRef.current.childNodes].reverse();
-      tl
-      .to(menuLinkRef.current, {
-        width: '100%',
-        overflow: 'auto',
-        duration: 0.3
-      })
-      .to(reverseNode, {
-        delay: 2,
+      gsap.to(menuLinkRef.current, {
         opacity: 1,
-        duration: 0.3,
-        stagger: 0.1
-      })
+        duration: 1
+      });
+      
     } else {
-      tl
-      .to(menuLinkRef.current.childNodes, {
+      gsap.to(menuLinkRef.current, {
         opacity: 0,
-        duration: 0.3,
-        stagger: 0.1
-      })
-      .to(menuLinkRef.current, { width: 0, duration: 0.3 })
+        duration: 0.5
+      });
     }
   }, [animationContext.openNav])
   
   return (
     <div
-      className='flex justify-between px-10 py-5 w-full fixed top-0 left-0 z-20' 
+      className='flex justify-between px-10 py-5 w-full fixed top-0 left-0 z-40' 
       style={{maxHeight: '70px', fontFamily: 'Montserrat'}}>
       <div 
         ref={logoRef} 
@@ -88,12 +76,11 @@ export default function Navbar() {
       </div>
       <div 
         ref={menuRef} 
-        style={{backdropFilter: 'blur(5px)'}}
-        className='flex justify-end menu-wrapper h-8 w-5/12 self-center'>
+        className='flex justify-end menu-wrapper h-8 w-6/12 self-center '>
         <ul 
           ref={menuLinkRef}
-          style={{fontSize: 'bold'}}
-          className={'self-end'}
+          style={{backdropFilter: 'blur(5px)'}}
+          className='self-end rounded px-2 font-semibold'
           >
           <li>Home</li>
           <li>Product Engineering</li>

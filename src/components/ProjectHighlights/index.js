@@ -29,6 +29,7 @@ export default function ProjectHighlights() {
         onLeaveBack: () => {
           animationContext.setCurrentBg('#171719')
           animationContext.setShowRedBg(false);
+          animationContext.setOpenNav(true);
         }
       }
     })
@@ -79,7 +80,7 @@ export default function ProjectHighlights() {
     <div
       ref={swiperWrapperRef}
       className="overflow-x-hidden flex items-center w-full"
-      style={{ height: window.innerHeight, backgroundColor: animationContext.currentBg }}
+      style={{ height: window.innerHeight }}
     >
       <div className="flex w-full flex-row justify-center">
         <div className="relative w-1/3 flex items-center justify-center">

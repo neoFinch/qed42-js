@@ -1,5 +1,7 @@
-import React, { useState, useRef } from 'react'
+import gsap from 'gsap'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import { useSpring, config, animated } from 'react-spring'
+import AnimationContext from '../../contexts/animation-context'
 
 import './style.css'
 
@@ -13,7 +15,9 @@ export default function ContactUs() {
   const [input2Focus, setInput2Focus] = useState(false)
   const [input3Focus, setInput3Focus] = useState(false)
 
-  const springRef = useRef()
+  const springRef = useRef();
+  const contacUsRef = useRef(null);
+  let animationContext = useContext(AnimationContext);
   const { height, width, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
@@ -37,8 +41,27 @@ export default function ContactUs() {
     }
   }
 
+  useEffect(() => {
+    gsap.to(contacUsRef.current, {
+      scrollTrigger: {
+        trigger: contacUsRef.current,
+        start: "+=133 90%",
+        end: "+=200 60%",
+        // markers: true,
+        onEnter: () => {
+          animationContext.setCurrentBg('#232323');
+        },
+        onLeaveBack: () => {
+          animationContext.setCurrentBg('#fff');
+        }
+      }
+    })
+  }, [])
+
   return (
-    <div className="w-full flex items-center justify-center z-20" style={{ height: window.innerHeight }}>
+    <div
+      ref={contacUsRef}
+      className="w-full flex items-center justify-center z-20" style={{ height: window.innerHeight }}>
       <animated.div
         id="wrapper"
         className="rounded-full flex items-center justify-center cursor-pointer"

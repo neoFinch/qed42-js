@@ -89,7 +89,7 @@ export default function ApplicationDevelopment() {
         animationContext.setCurrentBg('#fff');
       } else {
         setInViewport(false);
-        animationContext.setCurrentBg('#DD0031');
+        animationContext.setCurrentBg('#1A212C');
       }
     })
   }
@@ -97,7 +97,9 @@ export default function ApplicationDevelopment() {
   return (
     <div
       className='pt-20 relative'
-      style={{ background: animationContext.currentBg }}
+      style={{ 
+        //  animationContext.currentBg 
+      }}
     >
       <div
         id='scroller'

@@ -28,246 +28,45 @@ export default function Client() {
 
   let animationContext = useContext(AnimationContext);
 
-  useEffect( () =>{
-    gsap.from(headerRef.current,{
-      duration: 0.7,
-      autoAlpha:0,
-      ease: 'none',
-      delay: 1,
+  
+  
+  useEffect( () => {
+
+    let tl = gsap.timeline({
       scrollTrigger: {
+        // markers: true,
         trigger: headerRef.current,
-        start: "+=133 80%",
-        end: "+=200 60%",
+        start: "+=133 70%",
+        end: "0%",
+        scrub: true,
+        // toggleActions: "restart",
         onEnter: () => {
-          animationContext.setCurrentBg('#fff');
+          animationContext.setCurrentBg('#fff')
         },
         onLeaveBack: () => {
-          animationContext.setCurrentBg('#DD0031');
+          animationContext.setCurrentBg('#DD0031')
         }
       }
-    })
+    });
 
-
-    gsap.fromTo("#one",
-      {opacity: 0},
-      {
-      duration: 0.7,
+    tl.fromTo(headerRef.current.childNodes, {
+      yPercent: 200, 
+      duration: 3,
+      opacity: 0,
+    }, {
       opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger : {
-        pinSpacing: false,
-        trigger: "#one",
-        scrub: true,
-        toggleActions:'play none none reverse',
-        // markers: true,
-      }
+      yPercent: 0, 
+      duration: 1,
+      stagger: 0.3
     })
-
-    gsap.fromTo("#two",
-      {opacity: 0},
-      {
-        duration: 0.7,
-        opacity: 1,
-        yPercent: '300px',
-        ease: 'none',
-        scrollTrigger :{
-          pinSpacing: false,
-          trigger: "#two",
-          scrub: true,
-          start: "center bottom",
-          toggleActions:'play none none reverse',
-      }
-    })
-
-    gsap.fromTo("#three",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#three",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
- 
-    gsap.fromTo("#four",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#four",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-    gsap.fromTo("#five",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#five",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-    gsap.fromTo("#six",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#six",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-    gsap.fromTo("#seven",
-      {opacity: 0},
-      {
-        duration: 0.7,
-        opacity: 1,
-        yPercent: '300px',
-        ease: 'none',
-        scrollTrigger :{
-          pinSpacing: false,
-          trigger: "#seven",
-          scrub: true,
-          start: "center bottom",
-          toggleActions:'play none none reverse',
-        }
-    })
-
-    gsap.fromTo("#eight",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#eight",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-  })
-
-    gsap.fromTo("#nine",
-      {opacity: 0},
-      {
-        duration: 0.7,
-        opacity: 1,
-        yPercent: '300px',
-        ease: 'none',
-        scrollTrigger :{
-          pinSpacing: false,
-          trigger: "#nine",
-          scrub: true,
-          start: "center bottom",
-          toggleActions:'play none none reverse',
-        }
-    })
-
-
-    gsap.fromTo("#ten",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#ten",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-
-    gsap.fromTo("#eleven",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#eleven",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-
-    gsap.fromTo("#twelve",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: 0,
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#twelve",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-    gsap.fromTo("#thirteen",
-      {opacity: 0},
-      {
-      duration: 0.7,
-      opacity: 1,
-      yPercent: '300px',
-      ease: 'none',
-      scrollTrigger :{
-        pinSpacing: false,
-        trigger: "#thirteen",
-        scrub: true,
-        start: "center bottom",
-        toggleActions:'play none none reverse',
-      }
-    })
-
-},[])
+  }, [])
 
   return (
     <div 
       ref={headerRef}  
-      className='content-wrapper overflow-hidden py-40 min-h-screen'
+      className='content-wrapper overflow-hidden py-40 min-h-screen '
       style={{
-        maxHeight: '700px',
-        background: animationContext.currentBg
+        // background: animationContext.currentBg
       }}
       >
       <div ref={imageRef} className='content-images' >
