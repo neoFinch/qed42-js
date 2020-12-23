@@ -105,7 +105,7 @@ export default function ApplicationDevelopment() {
         className='relative app-develop-wrapper flex overflow-x-hidden overflow-y-hidden'
         style={{ height: `${height * 5}px`, width: `${window.innerWidth}px` }}
       >
-        <div className='panel pl-12' ref={firstPanelRef}>
+        <div className='panel pl-12' style={{ paddingTop: '100px' }} ref={firstPanelRef}>
           <div
             ref={circleWrapperRef}
             className='circle-wrapper w-full flex'
