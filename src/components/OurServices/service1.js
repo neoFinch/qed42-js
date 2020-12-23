@@ -3,14 +3,19 @@ import { useDencrypt } from "use-dencrypt-effect";
 
 export default function Service1 () {
 
-  const service = [".", "-", "/", "^","Progressive web application"];
+  const service = ["Progressive", "web", "application","Progressive web application"];
 
   const { result, dencrypt } = useDencrypt();
 
   useEffect(() => {
-    setTimeout(() => {
-      dencrypt('Progressive web application')
-    }, 2000)
+  let j = 0;
+
+  const action = setInterval(() => {
+    dencrypt(service[j]);
+    j = j === service.length - 1 ? 0 : j + 1;
+  }, 1800);
+
+  return setTimeout(() =>{clearInterval(action);},16000);
   }, []);
 
   return(

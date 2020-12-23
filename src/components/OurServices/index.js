@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import './style.css'
 
-import { useTransition, a } from 'react-spring'
+import { useTransition, animated } from 'react-spring'
 import shuffle from 'lodash/shuffle'
 import useMeasure from './useMeasure'
 import useMedia from './useMedia'
@@ -13,29 +13,22 @@ import Service2 from './service2'
 import { useDencrypt } from "use-dencrypt-effect";
 import AnimationContext from '../../contexts/animation-context';
 
-
 export default function OurServices() {
 
-  const service1 = ["/", ".", "-", "^", "*","REST API Solutions"];
-  // const [showOnScroll, setShowOnScroll] = useState(false);
-  let animationContext = useContext(AnimationContext)
+  const service = ["REST","API","Solutions","REST API Solutions"];
 
   const { result, dencrypt } = useDencrypt();
   useEffect(() => {
     let i = 0;
-    dencrypt('REST API Solutions')
-    // const action = setInterval(() => {
-    //   dencrypt(service1[i]);
-    //   i = i === service1.length - 1 ? 0 : i + 1;
-    // }, 2000);
 
-    const action = setTimeout(() => {
-      dencrypt(service1[i]);
-      i = i === service1.length - 1 ? 0 : i + 1;
-    }, 5000);
+    const action = setInterval(() => {
+      dencrypt(service[i]);
+      i = i === service.length - 1 ? 0 : i + 1;
+    }, 1500);
 
-    return () => clearInterval(action);
+    return setTimeout(() =>{clearInterval(action);}, 7000);
   }, []);
+  let animationContext = useContext(AnimationContext)
 
 
   const ourServicesRef = useRef(null);
@@ -66,6 +59,7 @@ export default function OurServices() {
   const [bind, { width }] = useMeasure()
   // Hook3: Hold items
   const [items, set] = useState(data)
+  console.log("data",data);
   // Hook4: shuffle data every 2 seconds
   useEffect(() => void setInterval(() => set(shuffle), 2000), [])
   // Hook5: Form a grid of stacked items using width & columns we got from hooks 1 & 2
@@ -88,8 +82,7 @@ export default function OurServices() {
     trail: 25
   })
 
-  // console.log('transition our services : ', transitions)
-
+console.log("transitions",transitions);
   return (
     <div
       ref={ourServicesRef}
@@ -101,9 +94,9 @@ export default function OurServices() {
           
             <div {...bind} className="list w-screen " style={{ height: Math.max(...heights)}}>
               {transitions.map(({ item, props: { xy, ...rest }, key }) => (
-                <a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
+                <animated.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
                   <div style={{ backgroundImage: item.css }} />
-                </a.div>
+                </animated.div>
               ))}
             </div>
           
@@ -117,9 +110,6 @@ export default function OurServices() {
           <Service2 />
         </div>
       </div>
-      {
-        // console.log('transition our services : ', transitions)
-      }
     </div>
   )
 }

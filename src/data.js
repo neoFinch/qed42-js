@@ -1,13 +1,16 @@
+
+
+
 export default [
     {
       css:
-        'url(https://images.pexels.com/photos/416430/pexels-photo-416430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 150
+        'url(https://api.zestard.com/wp-content/uploads/2015/12/What-is-Rest-API-02-1.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)', 
+      height: 300
     },
     {
       css:
         'url(https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 300
+      height: 150
     },
     {
       css:

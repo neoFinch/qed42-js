@@ -4,7 +4,6 @@ import './style.css';
 
 export default function Stack({ image, background, filter ,width }) {
 
-  console.log("width:", width)
   const [open, setOpen] = useState(false)
   const { f, r } = useSpring({ f: open ? 0 : 1, r: open ? -3 : 3 })
   const cards = useSprings(

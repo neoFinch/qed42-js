@@ -76,6 +76,24 @@ export default function ProjectHighlights() {
     leave: { opacity: 0 },
     config: config.molasses,
   })
+
+  // console.log('transitions', transitions);
+  // const flipCard = (dir) => {
+  //   dir === 'right' ? setControlDir(1) : setControlDir(-1)
+  //   setControlVel(0.25)
+  //   setTimeout(() => {
+  //     setControlDir(0)
+  //     setControlVel(0)
+  //     setIsControllerPressed(false)
+  //   }, 200)
+  // }
+
+  // const handleController = () => {
+  //   setIsControllerPressed(true)
+  // }
+  // const resetControllerPress = () => {
+  //   setIsControllerPressed(false)
+  // }
   return (
     <div
       ref={swiperWrapperRef}

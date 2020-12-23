@@ -192,16 +192,16 @@ export default function ApplicationDevelopment() {
               </h3>
             </div>
             <div className="main-stack-wrapper">
-              <div className="main p-12">
-                <Stack image={NODE} background="#333333" />
-                <Stack image={MONGODB} background='#B7E6CB' />
-                <Stack image={GRAPHQL} background="#A9A9A9" width="100%" />
-                <Stack image={GATSBY} background='#FF961E' />
-                <Stack image={REACT} background='#ddd' width="100%" />
-                <Stack image={REACT_NATIVE} background='#262C31' width="100%" />
-                <Stack image={AWS} background='#FFB42C' />
-                <Stack image={NEXT} filter='invert(1)' background="#000000" />
-                <Stack image={PWA} background='#E16038' />
+              <div className="main w-full h-full p-12">
+                <Stack image={NODE} background="#333333"  />
+                <Stack image={MONGODB} width="60%" background='#EE151E'  />
+                <Stack image={GRAPHQL} background="#00FF00" width="100%" />
+                <Stack image={GATSBY}  background='#FF961E' />
+                <Stack image={REACT}  background='#ddd' width="100%" />
+                <Stack image={REACT_NATIVE} background='#FFD400' width="100%" />
+                <Stack image={PWA} background='#FFF200' />
+                <Stack image={AWS} background='#0566B4' />
+                <Stack image={NEXT}  filter='invert(1)'  background="#000000" />
               </div>
             </div>
           </div>

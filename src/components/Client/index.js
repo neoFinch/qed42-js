@@ -1,21 +1,22 @@
 import React, {useContext, useEffect, useRef}  from 'react';
 import gsap from 'gsap';
 
-import NOVARTIS from '../../images/novartis-client-logo (1).png'
-import MGM from '../../images/mgm-client-logo.png'
-import ACQUIA from  '../../images/acquia-client-logo.png';
-import NESTLE from '../../images/nestle-client-logo.png';
-import STANFORD_UNIVERSITY from '../../images/stanford-client-logo.png';
-import AAMAADMI from '../../images/aamc-client-logo.png';
-import ASHOKA from '../../images/ashoka-logo.png';
-import FILA from '../../images/fila-client-logo.png';
-import ILAO from '../../images/ilao-client-logo.png';
-import INTEL from '../../images/intel-client-logo.png';
-import UNITARIAN from '../../images/unitarian-client-logo.png';
-import WARNER from '../../images/warner-client-logo.png';
+import NOVARTIS from '../../assets/images/novartis-logo.svg'
+import MGM from '../../assets/images/mgm-large.png'
+import ACQUIA from  '../../assets/images/acquia-logo.png';
+import NESTLE from '../../assets/images/nestle.png';
+import STANFORD_UNIVERSITY from '../../assets/images/stanford-univ.png';
+import AAMAADMI from '../../assets/images/aam-aadmi.png';
+import ASHOKA from '../../assets/images/Ashoka-logo (1).png';
+import FILA from '../../assets/images/fila-logo.png';
+import ILAO from '../../assets/images/ilao-logo.svg';
+import INTEL from '../../assets/images/intel-logo.png';
+import UNITARIAN from '../../assets/images/unitarian-logo.png';
+import WARNER from '../../assets/images/Warner_Music_Group.png';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './style.css';
 import AnimationContext from '../../contexts/animation-context';
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -60,14 +61,10 @@ export default function Client() {
       stagger: 0.3
     })
   }, [])
-
   return (
     <div 
       ref={headerRef}  
-      className='content-wrapper overflow-hidden py-40 min-h-screen '
-      style={{
-        // background: animationContext.currentBg
-      }}
+      className='content-wrapper overflow-hidden  py-40 min-h-screen'
       >
       <div ref={imageRef} className='content-images' >
         <div className="content-image-wrapper" id="one" >
@@ -112,6 +109,7 @@ export default function Client() {
           <img 
             className="element" 
             src={STANFORD_UNIVERSITY}
+            style={{ marginTop: '40px'}}
           />
         </div>
         <div className="content-image-wrapper" id="eight">
@@ -134,13 +132,13 @@ export default function Client() {
             src={INTEL} 
           />
         </div>
-        <div className='content-image-wrapper' id="twelve">
+        <div className='content-image-wrapper' id="eleven">
           <img 
             className="element" 
             src={ILAO} 
           />
         </div>
-        <div className='content-image-wrapper' id="thirteen">
+        <div className='content-image-wrapper' id="twelve">
           <img 
             className="element" 
             src={ASHOKA} 

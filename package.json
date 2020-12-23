@@ -10,7 +10,7 @@
     "gsap": "^3.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^4.0.1",
     "react-scroll-parallax": "^2.3.5",
     "react-spring": "^8.x.x",
     "react-use-gesture": "^5.0.0",
