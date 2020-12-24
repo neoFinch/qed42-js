@@ -69,8 +69,9 @@ export default function Navbar() {
       className='flex justify-between px-10 py-5 w-full fixed top-0 left-0 z-40' 
       style={{maxHeight: '70px', fontFamily: 'Montserrat'}}>
       <div 
-        ref={logoRef} 
-        className='logo-wrapper' 
+        ref={logoRef}
+        onClick={() => animationContext.executeScroll('Home')}
+        className='logo-wrapper cursor-pointer' 
         style={{width: '100px'}}>
         <img src={QedLogo} className='w-full'/>
       </div>
