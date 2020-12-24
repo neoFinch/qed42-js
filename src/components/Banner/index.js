@@ -9,7 +9,7 @@ import * as VFX from 'react-vfx';
 import gsap from 'gsap';
 import AnimationContext from '../../contexts/animation-context';
 
-export default function Banner() {
+export default function Banner({reff}) {
 
   // const [fillColor, setFillColor] = useState('transparent');
   // const specialChars = ['ß', 'µ', 'Ø', '¥', '±', '¿', 'þ']
@@ -71,9 +71,8 @@ export default function Banner() {
       <div 
         className='flex w-full flex-wrap justify-center text-center font-bold' 
         style={{fontFamily: 'Roboto, sans-serif'}}>
-        <div className='flex flex-wrap self-center justify-center'>
+        <div ref={reff} className='flex flex-wrap self-center justify-center'>
           <img className='w-2/3 pb-20' style={{filter: 'invert(1)'}} src={takingDigitalSvg} />
-          
           <div className='w-full text-center z-0'>
           {
             animationContext.showRedBg ?

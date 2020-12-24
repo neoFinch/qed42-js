@@ -6,7 +6,7 @@ import Deck from '../CardDeck';
 import gsap from 'gsap';
 
 
-export default function ProjectHighlights() {
+export default function ProjectHighlights({reff}) {
 
   const [index, setIndex] = useState(0)
   let animationContext = useContext(AnimationContext);
@@ -82,7 +82,7 @@ export default function ProjectHighlights() {
       className="overflow-x-hidden flex items-center w-full"
       style={{ height: window.innerHeight }}
     >
-      <div className="flex w-full flex-row justify-center">
+      <div ref={reff} className="flex w-full flex-row justify-center">
         <div className="relative w-1/3 flex items-center justify-center">
           {
             transitions.map(({ item, props, key }) => (

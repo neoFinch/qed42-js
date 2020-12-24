@@ -82,10 +82,30 @@ export default function Navbar() {
           style={{backdropFilter: 'blur(5px)'}}
           className='self-end rounded px-2 font-semibold'
           >
-          <li>Home</li>
-          <li>Product Engineering</li>
-          <li>Our Services</li>
-          <li>Contact Us</li>
+          <li 
+            className='cursor-pointer' 
+            onClick={() => animationContext.executeScroll('Home')}
+            >Home</li>
+          <li 
+            className='cursor-pointer' 
+            onClick={() => animationContext.executeScroll('Project')} 
+            >Projects</li>
+          <li 
+            className='cursor-pointer' 
+            onClick={() => animationContext.executeScroll('Client')} 
+            >Clients</li>
+          <li 
+            className='cursor-pointer' 
+            onClick={() => animationContext.executeScroll('Services')} 
+            >Services</li>
+          <li 
+            className='cursor-pointer' 
+            onClick={() => animationContext.executeScroll('Dev')} 
+            >Engineering</li>
+          <li 
+            className='cursor-pointer' 
+            onClick={() => animationContext.executeScroll('Contact')} 
+            >Contact Us</li>
         </ul>
         <button 
           onClick={() => animationContext.setOpenNav(!animationContext.openNav)} 

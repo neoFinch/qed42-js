@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import ApplicationDevelopment from './components/AppDevelopment';
 import SplashScreen from './components/Home';
 import Navbar from './components/Navbar';
@@ -32,21 +32,17 @@ function App() {
   const [currentBg, setCurrentBg] = useState('#161618');
   const [showRedBg, setShowRedBg] = useState(false);
   const [openNav, setOpenNav] = useState(true);
+  // const [openNav, setOpenNav] = useState(true);
 
   const appRef = useRef(null);
+  const scrollToHomeRef = useRef(null);
+  const scrollToProjectRef = useRef(null);
+  const scrollToClientRef = useRef(null);
+  const scrollToServicesRef = useRef(null);
+  const scrollToDevRef = useRef(null);
+  const scrollToContactRef = useRef(null);
 
-  // console.log('first : ', splashScreenActive);
-  // if (window.performance) {
-  //   console.info("window.performance works fine on this browser");
-  // }
-  // console.info(performance.navigation.type);
-  // if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-  //   console.info( "This page is reloaded" );
-  //   setSplashScreenActive(false);
-  // } else {
-  //   console.info( "This page is not reloaded");
-  //   setSplashScreenActive(true);
-  // }
+  
 
   useEffect(() => {
     gsap.to(appRef.current, {
@@ -54,6 +50,30 @@ function App() {
       background: currentBg
     })
   }, [currentBg]);
+
+  const executeScroll = (panelName) => {
+    switch(panelName) {
+
+      case 'Home' :
+        scrollToHomeRef.current.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        break;
+      case 'Project' :
+        scrollToProjectRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+        break;
+      case 'Client' :
+        scrollToClientRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "center"});
+        break;
+      case 'Services' :
+        scrollToServicesRef.current.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        break;
+      case 'Dev' :
+        scrollToDevRef.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        break;
+      case 'Contact' :
+        scrollToContactRef.current.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        break;
+    }
+  }
 
   return (
     <AnimationContext.Provider
@@ -65,7 +85,8 @@ function App() {
         openNav,
         setOpenNav,
         showRedBg,
-        setShowRedBg
+        setShowRedBg,
+        executeScroll
       }}>
       <div 
         ref={appRef}
@@ -77,12 +98,15 @@ function App() {
           <SplashScreen /> :
           <>
             <Navbar />
-            <Banner />
-            <ProjectHighlights />
-            <Client />
-            <OurServices />
-            <ApplicationDevelopment />
-            <ContactUs />
+            <Banner reff={scrollToHomeRef}/>
+            <ProjectHighlights reff={scrollToProjectRef}/>
+            <Client reff={scrollToClientRef}/>
+            <OurServices reff={scrollToServicesRef}/>
+            <div ref={scrollToDevRef}>
+              <ApplicationDevelopment />
+            </div>
+            <ContactUs reff={scrollToContactRef}/>
+
           </>
         }
 

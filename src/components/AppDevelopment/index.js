@@ -188,7 +188,7 @@ export default function ApplicationDevelopment() {
                 Tech Stack
               </h1>
               <h3 className='text-gray-700 text-2xl pr-12 text-justify' style={{ fontFamily: 'Montserrat' }}>
-                We develop apps with next-gen technologies to best suit your customer base.
+                We develop apps with next-gen technologies to best suit your product and giving a flawless experience to users across the globe.
               </h3>
             </div>
             <div className="main-stack-wrapper">

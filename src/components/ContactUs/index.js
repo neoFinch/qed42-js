@@ -5,7 +5,7 @@ import AnimationContext from '../../contexts/animation-context'
 
 import './style.css'
 
-export default function ContactUs() {
+export default function ContactUs({reff}) {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -63,6 +63,7 @@ export default function ContactUs() {
       ref={contacUsRef}
       className="w-full flex items-center justify-center z-20" style={{ height: window.innerHeight }}>
       <animated.div
+        ref={reff}
         id="wrapper"
         className="rounded-full flex items-center justify-center cursor-pointer"
         style={{ ...rest, width: width, height: height }}

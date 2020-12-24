@@ -14,7 +14,7 @@ import { useDencrypt } from "use-dencrypt-effect";
 import AnimationContext from '../../contexts/animation-context';
 
 
-export default function OurServices() {
+export default function OurServices({reff}) {
 
   const service1 = ["/", ".", "-", "^", "*","REST API Solutions"];
   // const [showOnScroll, setShowOnScroll] = useState(false);
@@ -109,7 +109,7 @@ export default function OurServices() {
           
 
         </div>
-        <div className='w-4/12 flex flex-col h-full relative'>
+        <div ref={reff} className='w-4/12 flex flex-col h-full relative'>
           <div className='w-screen mt-4 absolute'>
             <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>{result}</h3>
           </div>

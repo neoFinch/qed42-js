@@ -19,7 +19,7 @@ import AnimationContext from '../../contexts/animation-context';
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function Client() {
+export default function Client({reff}) {
 
   const headerRef = useRef(null);
   const imageRef = useRef([]);
@@ -63,88 +63,90 @@ export default function Client() {
 
   return (
     <div 
-      ref={headerRef}  
-      className='content-wrapper overflow-hidden py-40 min-h-screen '
+      ref={headerRef} 
+      className='content-wrapper overflow-hidden min-h-screen '
       style={{
         // background: animationContext.currentBg
       }}
       >
-      <div ref={imageRef} className='content-images' >
-        <div className="content-image-wrapper" id="one" >
-          <img 
-            className="element"
-            src={NOVARTIS}  
-          />
+      <div ref={reff} className='py-40'>
+        <div ref={imageRef} className='content-images' >
+          <div className="content-image-wrapper" id="one" >
+            <img 
+              className="element"
+              src={NOVARTIS}  
+            />
+          </div>
+          <div className="content-image-wrapper" id="two" >
+            <img 
+              className="element"
+              src={MGM}    
+            />
+          </div>
+          <div className="content-image-wrapper" id="three" >
+            <img 
+              className="element"
+              src={NESTLE}   
+            />
+          </div>
+          <div className="content-image-wrapper" id="four">
+            <img 
+              className="element"
+              src={AAMAADMI}   
+            />
+          </div>
         </div>
-        <div className="content-image-wrapper" id="two" >
-          <img 
-            className="element"
-            src={MGM}    
-          />
+        <div className='content-images' >
+          <div className="content-image-wrapper" id="five">
+            <img 
+              className="element" 
+              src={ACQUIA}  
+            />
+          </div>
+          <div className="content-image-wrapper" id="six">
+            <img 
+              className="element" 
+              src={WARNER}   
+            />
+          </div>
+          <div className="content-image-wrapper" id="seven">
+            <img 
+              className="element" 
+              src={STANFORD_UNIVERSITY}
+            />
+          </div>
+          <div className="content-image-wrapper" id="eight">
+            <img 
+              className="element" 
+              src={UNITARIAN}   
+            />
+          </div>
         </div>
-        <div className="content-image-wrapper" id="three" >
-          <img 
-            className="element"
-            src={NESTLE}   
-          />
-        </div>
-        <div className="content-image-wrapper" id="four">
-          <img 
-            className="element"
-            src={AAMAADMI}   
-          />
-        </div>
-      </div>
-      <div className='content-images' >
-        <div className="content-image-wrapper" id="five">
-          <img 
-            className="element" 
-            src={ACQUIA}  
-          />
-        </div>
-        <div className="content-image-wrapper" id="six">
-          <img 
-            className="element" 
-            src={WARNER}   
-          />
-        </div>
-        <div className="content-image-wrapper" id="seven">
-          <img 
-            className="element" 
-            src={STANFORD_UNIVERSITY}
-          />
-        </div>
-        <div className="content-image-wrapper" id="eight">
-          <img 
-            className="element" 
-            src={UNITARIAN}   
-          />
-        </div>
-      </div>
-      <div className='content-images' >
-        <div className='content-image-wrapper' id="nine">
-          <img 
-            className="element" 
-            src={FILA}  
-          />
-        </div>
-        <div className='content-image-wrapper' id="ten">
-          <img 
-            className="element" 
-            src={INTEL} 
-          />
-        </div>
-        <div className='content-image-wrapper' id="twelve">
-          <img 
-            className="element" 
-            src={ILAO} 
-          />
-        </div>
-        <div className='content-image-wrapper' id="thirteen">
-          <img 
-            className="element" 
-            src={ASHOKA} 
-          />
+        <div className='content-images' >
+          <div className='content-image-wrapper' id="nine">
+            <img 
+              className="element" 
+              src={FILA}  
+            />
+          </div>
+          <div className='content-image-wrapper' id="ten">
+            <img 
+              className="element" 
+              src={INTEL} 
+            />
+          </div>
+          <div className='content-image-wrapper' id="twelve">
+            <img 
+              className="element" 
+              src={ILAO} 
+            />
+          </div>
+          <div className='content-image-wrapper' id="thirteen">
+            <img 
+              className="element" 
+              src={ASHOKA} 
+            />
+          </div>
         </div>
       </div>
     </div>
