@@ -3,14 +3,19 @@ import { useDencrypt } from "use-dencrypt-effect";
 
 export default function Service2 () {
 
-  const service = ["/", ".", "-", "Front end performance optimization"];
+  const service = ["Front", "end", "performance", "Front end performance optimization"];
 
   const { result, dencrypt } = useDencrypt();
 
   useEffect(() => {
-    setTimeout(() => {
-      dencrypt('Front end performance optimization');
-    }, 4000)
+    let i = 0;
+
+    const action = setInterval(() => {
+      dencrypt(service[i]);
+      i = i === service.length - 1 ? 0 : i + 1;
+    }, 1500);
+
+    return setTimeout(() =>{clearInterval(action);}, 7000);
   }, []);
 
   return(

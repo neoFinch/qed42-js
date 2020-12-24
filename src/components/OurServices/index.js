@@ -16,27 +16,21 @@ import AnimationContext from '../../contexts/animation-context';
 
 export default function OurServices() {
 
-  const service1 = ["/", ".", "-", "^", "*","REST API Solutions"];
-  // const [showOnScroll, setShowOnScroll] = useState(false);
-  let animationContext = useContext(AnimationContext)
+  const service = ["REST", "API", "Solutions", "REST API Solutions"];
 
   const { result, dencrypt } = useDencrypt();
   useEffect(() => {
     let i = 0;
-    dencrypt('REST API Solutions')
-    // const action = setInterval(() => {
-    //   dencrypt(service1[i]);
-    //   i = i === service1.length - 1 ? 0 : i + 1;
-    // }, 2000);
 
-    const action = setTimeout(() => {
-      dencrypt(service1[i]);
-      i = i === service1.length - 1 ? 0 : i + 1;
-    }, 5000);
+    const action = setInterval(() => {
+      dencrypt(service[i]);
+      i = i === service.length - 1 ? 0 : i + 1;
+    }, 1500);
 
-    return () => clearInterval(action);
+    return setTimeout(() =>{clearInterval(action);}, 7000);
   }, []);
 
+  let animationContext = useContext(AnimationContext)
 
   const ourServicesRef = useRef(null);
   useEffect(() => {
@@ -88,8 +82,6 @@ export default function OurServices() {
     trail: 25
   })
 
-  // console.log('transition our services : ', transitions)
-
   return (
     <div
       ref={ourServicesRef}
@@ -98,7 +90,6 @@ export default function OurServices() {
       <h1 className='text-6xl font-semibold text-gray-500 w-full' style={{fontFamily: 'Montserrat'}}>Our Services</h1>
       <div className='w-full flex justify-around'>
         <div className='list-wrapper'>
-          
             <div {...bind} className="list w-screen " style={{ height: Math.max(...heights)}}>
               {transitions.map(({ item, props: { xy, ...rest }, key }) => (
                 <a.div key={key} style={{ transform: xy.interpolate((x, y) => `translate3d(${x}px,${y}px,0)`), ...rest }}>
@@ -106,7 +97,6 @@ export default function OurServices() {
                 </a.div>
               ))}
             </div>
-          
 
         </div>
         <div className='w-4/12 flex flex-col h-full relative'>
@@ -117,9 +107,6 @@ export default function OurServices() {
           <Service2 />
         </div>
       </div>
-      {
-        // console.log('transition our services : ', transitions)
-      }
     </div>
   )
 }
