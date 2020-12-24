@@ -16,20 +16,9 @@ import AnimationContext from '../../contexts/animation-context';
 
 export default function OurServices({reff}) {
 
-  const service = ["REST", "API", "Solutions", "REST API Solutions"];
-
   const { result, dencrypt } = useDencrypt();
-  useEffect(() => {
-    let i = 0;
-
-    const action = setInterval(() => {
-      dencrypt(service[i]);
-      i = i === service.length - 1 ? 0 : i + 1;
-    }, 1500);
-
-    return setTimeout(() =>{clearInterval(action);}, 7000);
-  }, []);
-
+  const [entered, setEntered] = useState(false);
+  
   let animationContext = useContext(AnimationContext)
 
   const ourServicesRef = useRef(null);
@@ -43,13 +32,13 @@ export default function OurServices({reff}) {
         // markers: true,
         pinSpacing: false,
         onEnter: () => {
-          animationContext.setCurrentBg('#1A212C')
+          animationContext.setCurrentBg('#1A212C');
+          dencrypt('REST API Solutions');
+          setEntered(true);
         },
         onLeaveBack: () => {
           animationContext.setCurrentBg('#fff')
         }
-        // markers: true,
-        // toggleActions: "play reverse play reverse",
       }
     });
   }, []);
@@ -99,12 +88,12 @@ export default function OurServices({reff}) {
             </div>
 
         </div>
-        <div ref={reff} className='w-4/12 flex flex-col h-full relative'>
-          <div className='w-screen mt-4 absolute'>
+        <div ref={reff} className='w-4/12 flex flex-col relative pt-12 pl-6' style={{height: '450px'}}>
+          <div className='w-screen mt-4'>
             <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>{result}</h3>
           </div>
-          <Service1 />
-          <Service2 />
+          <Service1 entered={entered} />
+          <Service2 entered={entered} />
         </div>
       </div>
     </div>

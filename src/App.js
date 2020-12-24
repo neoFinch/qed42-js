@@ -64,7 +64,7 @@ function App() {
         scrollToClientRef.current.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
         break;
       case 'Services' :
-        scrollToServicesRef.current.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        scrollToServicesRef.current.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
         break;
       case 'Dev' :
         scrollToDevRef.current.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});

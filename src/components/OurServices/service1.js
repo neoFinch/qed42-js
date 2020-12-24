@@ -1,25 +1,20 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import { useDencrypt } from "use-dencrypt-effect";
 
-export default function Service1 () {
+export default function Service1 ({entered}) {
 
-  const service = ["Progressive", "web", "application", "Progressive web application"];
+  const service = ["Progressive web application"];
 
   const { result, dencrypt } = useDencrypt();
-
+  
   useEffect(() => {
-    let i = 0;
-
-    const action = setInterval(() => {
-      dencrypt(service[i]);
-      i = i === service.length - 1 ? 0 : i + 1;
-    }, 1500);
-
-    return setTimeout(() =>{clearInterval(action);}, 7000);
-  }, []);
+    if (entered) {
+      dencrypt('Progressive web application');
+    }
+  }, [entered]);
 
   return(
-    <div className='w-full mt-16 absolute' style={{ top: '236px'}}>
+    <div className='w-full mt-16 py-10'>
       <h3 className='text-2xl text-gray-600 font-semibold' style={{fontFamily: 'Montserrat'}}>{result}</h3>
     </div> 
   )
