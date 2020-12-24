@@ -1,6 +1,5 @@
 import gsap from 'gsap'
 import React, { useState, useRef, useEffect, useContext } from 'react'
-import { useSpring, config, animated } from 'react-spring'
 import AnimationContext from '../../contexts/animation-context'
 
 import './style.css'
@@ -15,15 +14,15 @@ export default function ContactUs() {
   const [input2Focus, setInput2Focus] = useState(false)
   const [input3Focus, setInput3Focus] = useState(false)
 
-  const springRef = useRef();
+  // const springRef = useRef();
   const contacUsRef = useRef(null);
   let animationContext = useContext(AnimationContext);
-  const { height, width, opacity, ...rest } = useSpring({
-    ref: springRef,
-    config: config.stiff,
-    from: { height: '18%', width: "30%", background: '#e2e8f0' },
-    to: { height: open ? '100%' : '18%', width: open ? '100%' : "30%", background: open ? 'white' : '#e2e8f0' }
-  })
+  // const { height, width, opacity, ...rest } = useSpring({
+  //   ref: springRef,
+  //   config: config.stiff,
+  //   from: { height: '18%', width: "30%", background: '#e2e8f0' },
+  //   to: { height: open ? '100%' : '18%', width: open ? '100%' : "30%", background: open ? 'white' : '#e2e8f0' }
+  // })
 
   const adjustFocus = (id) => {
     if (id === "input1") {
@@ -49,7 +48,7 @@ export default function ContactUs() {
         end: "+=200 60%",
         // markers: true,
         onEnter: () => {
-          animationContext.setCurrentBg('#232323');
+          animationContext.setCurrentBg('linear-gradient(to left, #8a2387, #e94057, #f27121)');
         },
         onLeaveBack: () => {
           animationContext.setCurrentBg('#fff');
@@ -58,22 +57,43 @@ export default function ContactUs() {
     })
   }, [])
 
+  const handleClickOpen = () => {
+    gsap.from('.component', {
+      opacity: 0,
+      y: 250,
+      duration: 0.5,
+      ease: 'power1.out',
+    })
+  }
+
+  const handleClickClose = () => {
+    gsap.from('.component', {
+      opacity: 0,
+      duration: 0.5,
+      y: 250,
+      ease: 'power1.out',
+    })
+  }
+
   return (
     <div
       ref={contacUsRef}
       className="w-full flex items-center justify-center z-20" style={{ height: window.innerHeight }}>
-      <animated.div
+      <div
         id="wrapper"
-        className="rounded-full flex items-center justify-center cursor-pointer"
-        style={{ ...rest, width: width, height: height }}
+        className="component w-full h-full flex items-center justify-center"
       >
         {
           !open ? (
             <div
-              className="label-wrapper cursor-pointer text-center"
-              onClick={() => setOpen(true)}
+              className="cursor-pointer text-center bg-gray-300 flex items-center justify-center rounded-full"
+              onClick={() => {
+                setOpen(true)
+                handleClickOpen()
+              }}
+              style={{ height: '20%', width: '30%' }}
             >
-              <h1 className="font-semibold text-5xl cursor-pointer" style={{ fontFamily: 'Montserrat' }} >
+              <h1 className="label font-semibold text-5xl cursor-pointer" style={{ fontFamily: 'Montserrat' }} >
                 Contact Us?
               </h1>
             </div>
@@ -83,8 +103,8 @@ export default function ContactUs() {
         {
           open ? (
             <div
-              className="w-full flex items-center justify-center"
-              style={{ height: window.innerHeight }}
+              className="form-container flex items-center justify-center rounded-full"
+              style={{ height: window.innerHeight * 0.9, width: '90%', backgroundColor: 'rgba(255,255,255,0.1)' }}
             >
               <div className="w-1/2 h-auto">
                 <h1 className="font-bold mb-5 text-6xl" style={{ fontFamily: 'Montserrat' }}>
@@ -95,9 +115,9 @@ export default function ContactUs() {
                     type="text"
                     id="input1"
                     placeholder="Name"
-                    className="w-full h-16 border-b outline-none"
+                    className="w-full h-16 border-b border-gray-600 outline-none"
                     onFocus={() => { adjustFocus("input1") }}
-                    style={{ fontFamily: 'Montserrat', borderBottomColor: input1Focus ? 'gray' : "" }}
+                    style={{ fontFamily: 'Montserrat', borderBottomColor: input1Focus ? 'black' : "" }}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -107,8 +127,8 @@ export default function ContactUs() {
                     type="email"
                     id="input2"
                     placeholder="Email"
-                    className="w-full h-16 border-b outline-none"
-                    style={{ fontFamily: 'Montserrat', borderBottomColor: input2Focus ? 'gray' : "" }}
+                    className="w-full h-16 border-b border-gray-600 outline-none"
+                    style={{ fontFamily: 'Montserrat', borderBottomColor: input2Focus ? 'black' : "" }}
                     value={email}
                     onFocus={() => { adjustFocus("input2") }}
                     onChange={(e) => setEmail(e.target.value)}
@@ -119,8 +139,8 @@ export default function ContactUs() {
                     type="text"
                     id="input3"
                     placeholder="How can we help you?"
-                    className="w-full h-16 border-b outline-none"
-                    style={{ fontFamily: 'Montserrat', borderBottomColor: input3Focus ? 'gray' : "" }}
+                    className="w-full h-16 border-b border-gray-600 outline-none"
+                    style={{ fontFamily: 'Montserrat', borderBottomColor: input3Focus ? 'black' : "" }}
                     value={description}
                     onFocus={() => { adjustFocus("input3") }}
                     onChange={(e) => setDescription(e.target.value)}
@@ -133,7 +153,10 @@ export default function ContactUs() {
                 <div className="w-full mt-12">
                   <p
                     className="submitBtnWrapper flex ml-auto mr-auto items-center justify-center rounded-full cursor-pointer"
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false)
+                      handleClickClose()
+                    }}
                   >
                     <span
                       className="submitBtn flex items-center justify-center bg-gray-300 rounded-full"
@@ -147,7 +170,7 @@ export default function ContactUs() {
             </div >
           ) : null
         }
-      </animated.div>
+      </div>
     </div>
 
   )
