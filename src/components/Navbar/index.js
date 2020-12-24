@@ -71,9 +71,9 @@ export default function Navbar() {
       <div 
         ref={logoRef}
         onClick={() => animationContext.executeScroll('Home')}
-        className='logo-wrapper cursor-pointer' 
-        style={{width: '100px'}}>
-        <img src={QedLogo} className='w-full'/>
+        className='logo-wrapper cursor-pointer rounded-full' 
+        style={{width: '120px', height: '40px', backdropFilter: 'blur(5px)', padding: '5px'}}>
+        <img src={QedLogo} style={{width: '100px'}}/>
       </div>
       <div 
         ref={menuRef} 

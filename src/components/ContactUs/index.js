@@ -48,7 +48,7 @@ export default function ContactUs({reff}) {
         end: "+=200 60%",
         // markers: true,
         onEnter: () => {
-          animationContext.setCurrentBg('linear-gradient(to left, #8a2387, #e94057, #f27121)');
+          animationContext.setCurrentBg('linear-gradient(to left, #8a2387, #e94057, #EB484F)');
         },
         onLeaveBack: () => {
           animationContext.setCurrentBg('#fff');
@@ -116,7 +116,7 @@ export default function ContactUs({reff}) {
                     type="text"
                     id="input1"
                     placeholder="Name"
-                    className="w-full h-16 border-b border-gray-600 outline-none placeholder-gray-700 font-semibold"
+                    className="w-full h-16 border-b border-gray-600 outline-none placeholder-gray-200 font-semibold"
                     onFocus={() => { adjustFocus("input1") }}
                     style={{ fontFamily: 'Montserrat', borderBottomColor: input1Focus ? 'black' : "" }}
                     value={name}
@@ -128,7 +128,7 @@ export default function ContactUs({reff}) {
                     type="email"
                     id="input2"
                     placeholder="Email"
-                    className="w-full h-16 border-b border-gray-600 outline-none placeholder-gray-700 font-semibold"
+                    className="w-full h-16 border-b border-gray-600 outline-none placeholder-gray-200 font-semibold"
                     style={{ fontFamily: 'Montserrat', borderBottomColor: input2Focus ? 'black' : "" }}
                     value={email}
                     onFocus={() => { adjustFocus("input2") }}
@@ -140,7 +140,7 @@ export default function ContactUs({reff}) {
                     type="text"
                     id="input3"
                     placeholder="How can we help you?"
-                    className="w-full h-16 border-b border-gray-600 outline-none placeholder-gray-700 font-semibold"
+                    className="w-full h-16 border-b border-gray-600 outline-none placeholder-gray-200 font-semibold"
                     style={{ fontFamily: 'Montserrat', borderBottomColor: input3Focus ? 'black' : "" }}
                     value={description}
                     onFocus={() => { adjustFocus("input3") }}
