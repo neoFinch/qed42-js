@@ -1,18 +1,18 @@
 import React, {useContext, useEffect, useRef}  from 'react';
 import gsap from 'gsap';
 
-import NOVARTIS from '../../images/novartis-client-logo (1).png'
-import MGM from '../../images/mgm-client-logo.png'
-import ACQUIA from  '../../images/acquia-client-logo.png';
-import NESTLE from '../../images/nestle-client-logo.png';
-import STANFORD_UNIVERSITY from '../../images/stanford-client-logo.png';
-import AAMAADMI from '../../images/aamc-client-logo.png';
-import ASHOKA from '../../images/ashoka-logo.png';
-import FILA from '../../images/fila-client-logo.png';
-import ILAO from '../../images/ilao-client-logo.png';
-import INTEL from '../../images/intel-client-logo.png';
-import UNITARIAN from '../../images/unitarian-client-logo.png';
-import WARNER from '../../images/warner-client-logo.png';
+import NOVARTIS from '../../assets/images/novartis-logo.svg'
+import MGM from '../../assets/images/mgm-large.png'
+import ACQUIA from  '../../assets/images/acquia-logo.png';
+import NESTLE from '../../assets/images/nestle.png';
+import STANFORD_UNIVERSITY from '../../assets/images/stanford-univ.png';
+import AAMAADMI from '../../assets/images/aam-aadmi.png';
+import ASHOKA from '../../assets/images/Ashoka-logo.png';
+import FILA from '../../assets/images/fila-logo.png';
+import ILAO from '../../assets/images/ilao-logo.svg';
+import INTEL from '../../assets/images/intel-logo.png';
+import UNITARIAN from '../../assets/images/unitarian-logo.png';
+import WARNER from '../../assets/images/Warner_Music_Group.png';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './style.css';
 import AnimationContext from '../../contexts/animation-context';
@@ -63,85 +63,112 @@ export default function Client({reff}) {
 
   return (
     <div 
-      ref={headerRef} 
-      className='content-wrapper overflow-hidden min-h-screen '
+      ref={reff} 
+      className='content-wrapper overflow-hidden min-h-screen pt-20'
       style={{
         // background: animationContext.currentBg
       }}
       >
-      <div ref={reff} className='py-40'>
-        <div ref={imageRef} className='content-images' >
-          <div className="content-image-wrapper" id="one" >
+      <div ref={headerRef}>
+        <div className='content-images' >
+          <div 
+            className="content-image-wrapper" 
+            id="one" 
+            style={{ width: '220px'}} 
+          >
             <img 
               className="element"
               src={NOVARTIS}  
             />
           </div>
-          <div className="content-image-wrapper" id="two" >
+          <div className="content-image-wrapper" id="two" style={{ width: '220px'}} >
             <img 
               className="element"
               src={MGM}    
             />
           </div>
-          <div className="content-image-wrapper" id="three" >
+          <div className="content-image-wrapper" id="three" style={{ width: '220px'}} >
             <img 
               className="element"
               src={NESTLE}   
+              style={{ width: '250px'}} 
             />
           </div>
-          <div className="content-image-wrapper" id="four">
+          <div className="content-image-wrapper" id="four" style={{ width: '220px'}} >
             <img 
               className="element"
               src={AAMAADMI}   
+              style={{ width: '200px'}} 
             />
           </div>
         </div>
         <div className='content-images' >
-          <div className="content-image-wrapper" id="five">
+          <div 
+            className="content-image-wrapper" 
+            id="five" 
+            style={{ width: '210px'}} 
+          >
             <img 
               className="element" 
               src={ACQUIA}  
             />
           </div>
-          <div className="content-image-wrapper" id="six">
+          <div 
+            className="content-image-wrapper" 
+            id="six"
+            style={{ width: '220px'}} 
+            >
             <img 
               className="element" 
               src={WARNER}   
             />
           </div>
-          <div className="content-image-wrapper" id="seven">
+          <div className="content-image-wrapper" id="seven" style={{ width: '220px'}} >
             <img 
               className="element" 
               src={STANFORD_UNIVERSITY}
+              style={{ marginTop: '25px'}}
             />
           </div>
-          <div className="content-image-wrapper" id="eight">
+          <div 
+            className="content-image-wrapper" 
+            id="eight"
+            style={{ width: '220px'}} 
+            >
             <img 
               className="element" 
               src={UNITARIAN}   
+              style={{ marginBottom: '10px'}}
             />
           </div>
         </div>
         <div className='content-images' >
-          <div className='content-image-wrapper' id="nine">
+          <div className='content-image-wrapper'
+                id="nine"
+                style={{ width: '200px'}}
+                >
             <img 
               className="element" 
               src={FILA}  
             />
           </div>
-          <div className='content-image-wrapper' id="ten">
+          <div className='content-image-wrapper' id="ten" style={{ width: '220px'}} >
             <img 
               className="element" 
               src={INTEL} 
             />
           </div>
-          <div className='content-image-wrapper' id="twelve">
+          <div 
+            className='content-image-wrapper' 
+            id="twelve" 
+            style={{ width: '150px'}} 
+          >
             <img 
               className="element" 
               src={ILAO} 
             />
           </div>
-          <div className='content-image-wrapper' id="thirteen">
+          <div className='content-image-wrapper' id="thirteen" style={{ width: '220px'}} >
             <img 
               className="element" 
               src={ASHOKA} 
