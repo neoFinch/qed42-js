@@ -17,17 +17,17 @@ export default [
     {
       css:
         'url(https://imgs.developpaper.com/imgs/4193811417-aaec1b76933a6542_articlex.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 300
-    },
-    {
-      css:
-        'url(https://miro.medium.com/max/2800/1*hWVmsnBY6Fr6OoNvIU5pmg.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
       height: 200
     },
     {
       css:
+        'url(https://miro.medium.com/max/2800/1*hWVmsnBY6Fr6OoNvIU5pmg.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
+      height: 300
+    },
+    {
+      css:
         'url(https://stackify.com/wp-content/uploads/2018/09/REST-API-Tutorial-881x441.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 350
+      height:250
     },
     {
       css:
@@ -37,7 +37,7 @@ export default [
     {
       css:
         'url(https://ignitesyou.in/wp-content/uploads/2020/04/c434d8fccf80bd57ef848ae24a9825ffd3322be7.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 300
+      height: 200
     },
     {
       css:
@@ -57,7 +57,7 @@ export default [
     {
       css:
         'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_mFNr2HrfG7xFyLImYRVwI-sePi0tUWNcFw&usqp=CAU?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 200
+      height: 250
     },
     {
       css:
@@ -67,7 +67,7 @@ export default [
     {
       css:
         'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR16u_oIFQhaNh4NAi4FqfFB5GUV3v_5dZ99Q&usqp=CAU?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)',
-      height: 300
+      height: 380
     }
   ]
   
