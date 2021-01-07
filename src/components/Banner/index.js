@@ -32,16 +32,16 @@ export default function Banner({reff}) {
   }, [])
 
   useEffect(() => {
-      if (!vantaEffect) {
-      setVantaEffect(NET({
-        el: bannerRef.current,
-        color: 0xd71556,
-        backgroundColor: animationContext.currentBg,
-        points: 9.00,
-        THREE: THREE
-      }))
-      // setBg(animationContext.currentBg);
-    } 
+    //   if (!vantaEffect) {
+    //   setVantaEffect(NET({
+    //     el: bannerRef.current,
+    //     color: 0xd71556,
+    //     backgroundColor: animationContext.currentBg,
+    //     points: 9.00,
+    //     THREE: THREE
+    //   }))
+    //   // setBg(animationContext.currentBg);
+    // } 
   }, [vantaEffect, animationContext.currentBg]);
 
   useEffect(() => {
