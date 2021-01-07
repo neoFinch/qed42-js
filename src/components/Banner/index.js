@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 // import forwardSvg from '../../assets/images/new.svg';
 import takingDigitalSvg from '../../assets/images/taking-digital.svg';
 import forwardSvg from '../../assets/images/forward.svg';
-import anime from 'animejs/lib/anime.es.js';
+// import anime from 'animejs/lib/anime.es.js';
 import NET from 'vanta/dist/vanta.net.min';
-import * as THREE from 'three';
-import * as VFX from 'react-vfx';
+// import * as THREE from 'three';
+// import * as VFX from 'react-vfx';
 import gsap from 'gsap';
 import AnimationContext from '../../contexts/animation-context';
 
@@ -32,16 +32,15 @@ export default function Banner({reff}) {
   }, [])
 
   useEffect(() => {
-    //   if (!vantaEffect) {
-    //   setVantaEffect(NET({
-    //     el: bannerRef.current,
-    //     color: 0xd71556,
-    //     backgroundColor: animationContext.currentBg,
-    //     points: 9.00,
-    //     THREE: THREE
-    //   }))
-    //   // setBg(animationContext.currentBg);
-    // } 
+      if (!vantaEffect) {
+      setVantaEffect(NET({
+        el: bannerRef.current,
+        color: 0xd71556,
+        backgroundColor: animationContext.currentBg,
+        points: 6.00,
+      }))
+      // setBg(animationContext.currentBg);
+    } 
   }, [vantaEffect, animationContext.currentBg]);
 
   useEffect(() => {
@@ -78,13 +77,14 @@ export default function Banner({reff}) {
             animationContext.showRedBg ?
             <img className='w-1/2 m-auto' src={forwardSvg}/>
             :
-            <VFX.VFXProvider>
-              <VFX.VFXImg
-                className='w-1/2 m-auto'
-                src={forwardSvg}
-                shader="rgbGlitch"
-              />
-            </VFX.VFXProvider>
+            <img className='w-1/2 m-auto' src={forwardSvg}/>
+            // <VFX.VFXProvider>
+            //   <VFX.VFXImg
+            //     className='w-1/2 m-auto'
+            //     src={forwardSvg}
+            //     shader="rgbGlitch"
+            //   />
+            // </VFX.VFXProvider>
           }
           </div>
         </div>
