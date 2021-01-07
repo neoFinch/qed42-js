@@ -5,7 +5,7 @@ import forwardSvg from '../../assets/images/forward.svg';
 // import anime from 'animejs/lib/anime.es.js';
 import NET from 'vanta/dist/vanta.net.min';
 // import * as THREE from 'three';
-// import * as VFX from 'react-vfx';
+import * as VFX from 'react-vfx';
 import gsap from 'gsap';
 import AnimationContext from '../../contexts/animation-context';
 
@@ -15,6 +15,7 @@ export default function Banner({reff}) {
   // const specialChars = ['ß', 'µ', 'Ø', '¥', '±', '¿', 'þ']
   let bannerRef = useRef(null);
   const [vantaEffect, setVantaEffect] = useState(0)
+  const [flicker, setFlicker] = useState(1)
   const overlayRef = useRef(null)
   // const background = '#161618';
   let animationContext = useContext(AnimationContext);
@@ -37,18 +38,33 @@ export default function Banner({reff}) {
         el: bannerRef.current,
         color: 0xd71556,
         backgroundColor: animationContext.currentBg,
-        points: 6.00,
+        points: 7.00,
       }))
       // setBg(animationContext.currentBg);
     } 
   }, [vantaEffect, animationContext.currentBg]);
 
   useEffect(() => {
+
+    gsap.to(bannerRef.current, {
+      scrollTrigger: {
+        // markers: true,
+        start: "+=133 10%",
+        end: "+=133 5%",
+        onEnter: () => {
+          setFlicker(0)
+        },
+        onLeaveBack: () => {
+          setFlicker(1)
+        }
+      }
+    });
+
     if (animationContext.showRedBg) {
       gsap.to(overlayRef.current, {
         opacity: 1,
         duration: 1,
-        background: animationContext.currentBg
+        background: animationContext.currentBg,
       })
     } else {
       gsap.to(overlayRef.current, {
@@ -74,17 +90,19 @@ export default function Banner({reff}) {
           <img className='w-2/3 pb-20' style={{filter: 'invert(1)'}} src={takingDigitalSvg} />
           <div className='w-full text-center z-0'>
           {
-            animationContext.showRedBg ?
-            <img className='w-1/2 m-auto' src={forwardSvg}/>
-            :
-            <img className='w-1/2 m-auto' src={forwardSvg}/>
-            // <VFX.VFXProvider>
-            //   <VFX.VFXImg
-            //     className='w-1/2 m-auto'
-            //     src={forwardSvg}
-            //     shader="rgbGlitch"
-            //   />
-            // </VFX.VFXProvider>
+            !flicker ?
+            <img
+              className='w-1/2 m-auto'
+              src={forwardSvg}/>
+              :
+            <VFX.VFXProvider style={{ opacity: 0}}>
+              <VFX.VFXImg
+                
+                className='w-1/2 m-auto'
+                src={forwardSvg}
+                shader="rgbGlitch"
+              />
+            </VFX.VFXProvider>
           }
           </div>
         </div>
