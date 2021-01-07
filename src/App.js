@@ -102,9 +102,9 @@ function App() {
             <ProjectHighlights reff={scrollToProjectRef}/>
             <Client reff={scrollToClientRef}/>
             <OurServices reff={scrollToServicesRef}/>
-            <div ref={scrollToDevRef}>
+            {/* <div ref={scrollToDevRef}>
               <ApplicationDevelopment />
-            </div>
+            </div> */}
             <ContactUs reff={scrollToContactRef}/>
 
           </>
